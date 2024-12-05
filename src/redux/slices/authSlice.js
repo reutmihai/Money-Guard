@@ -4,6 +4,7 @@ import {
   handleLogOut,
   handleRegister,
 } from '../../services/authAPI';
+import { fetchUser } from '../../services/fetchUser';
 
 const authSlice = createSlice({
   name: 'auth',
@@ -22,7 +23,8 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(handleRegister.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user.username = action.payload.username;
+        state.user.email = action.payload.email;
         state.balance = action.payload.balance;
         state.id = action.payload.id;
         state.token = action.payload.token;
@@ -36,7 +38,8 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(handleLogIn.fulfilled, (state, action) => {
-        state.user = action.payload.user;
+        state.user.username = action.payload.username;
+        state.user.email = action.payload.email;
         state.balance = action.payload.balance;
         state.id = action.payload.id;
         state.token = action.payload.token;
@@ -50,13 +53,26 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(handleLogOut.fulfilled, state => {
-        state.user = { name: null, email: null };
+        state.user = { username: null, email: null };
         state.balance = null;
         state.id = null;
         state.token = null;
         state.isLoggedIn = false;
       })
       .addCase(handleLogOut.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchUser.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.user.username = action.payload.username;
+        state.user.email = action.payload.email;
+        state.balance = action.payload.balance;
+        state.id = action.payload.id;
+      })
+      .addCase(fetchUser.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

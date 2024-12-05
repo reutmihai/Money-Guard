@@ -11,6 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './slices/authSlice';
+import { transactionReducer } from './slices/transactionsSlice';
 
 // Setting what data to save to local storage
 const authPersistConfig = {
@@ -23,6 +24,7 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
+    transactions: transactionReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -24,7 +24,6 @@ export const handleRegister = createAsyncThunk(
       addAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      console.error(error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
