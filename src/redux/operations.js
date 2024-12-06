@@ -1,16 +1,23 @@
-//Curency operations
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchUsdEuroValues } from '../services/currencyApi';
-import { setDataToLocalStorage, getCurrencyDataFromLocalStorage } from '../services/currencyApiHelpers';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { getCurrencyRates } from "../services/currencyApi";
 
-export const getCurrency = createAsyncThunk('currency', async (_, thunkAPI) => {
+export const getCurrency = createAsyncThunk(
+  "currency/getCurrency",
+  async (_, thunkAPI) => {
     try {
-        const storedData = getCurrencyDataFromLocalStorage();
-        if (storedData) return storedData;
-        const data = await fetchUsdEuroValues();
-        setDataToLocalStorage(data);
-        return data;
+      const rates = await getCurrencyRates();
+      return {
+        dollar: {
+          rateBuy: rates.USD,
+          rateSell: rates.USD,
+        },
+        euro: {
+          rateBuy: rates.EUR,
+          rateSell: rates.EUR,
+        },
+      };
     } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
-});
+  }
+);
