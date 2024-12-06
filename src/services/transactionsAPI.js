@@ -1,6 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import apiClient from './apiClient';
-
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 
 // Adding a transaction
@@ -34,6 +33,7 @@ export const updateTransaction = createAsyncThunk(
   'transactions/updateTransaction',
   async (data, thunkAPI) => {
     try {
+      // addAuthorization()
       const response = await apiClient.patch(`/transactions/${data.id}`, data);
       return response.data;
     } catch (error) {
@@ -60,7 +60,7 @@ export const getTransactionCategories = createAsyncThunk(
   'transactions/getTransactionCategories',
   async (_, thunkAPI) => {
     try {
-      const response = await apiClient.get('/transactions-categories');
+      const response = await apiClient.get('/transaction-categories');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -9,22 +9,20 @@ import {
 } from '../../services/transactionsAPI';
 
 
-const initialState = {
-  transactions: [],
-  transactionCategories: [],
-  categoriesSummary: [],
-  incomeSummary: null,
-  expenseSummary: null,
-  periodTotal: null,
-  year: null,
-  month: null,
-  isLoading: false,
-  error: null,
-};
-
 const transactionsSlice = createSlice({
   name: 'transactions',
-  initialState,
+  initialState: {
+    transactions: [],
+    transactionCategories: [],
+    categoriesSummary: [],
+    incomeSummary: 0,
+    expenseSummary: 0,
+    periodTotal: 0,
+    year: 0,
+    month: 0,
+    isLoading: false,
+    error: null,
+  },
   reducers: {},
   extraReducers: builder => {
     builder

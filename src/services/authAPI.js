@@ -1,13 +1,12 @@
-import apiClient from './apiClient';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
+import apiClient from './apiClient';
 
 // Handling registration
 export const handleRegister = createAsyncThunk(
   'auth/handleRegister',
   async (data, thunkAPI) => {
     try {
-      const response = await apiClient.post(`/auth/sign-up`, data);
+      const response = await apiClient.post('/auth/sign-up', data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
