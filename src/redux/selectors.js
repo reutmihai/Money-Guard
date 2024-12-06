@@ -21,3 +21,9 @@ export const selectYear = state => state.transactions.year;
 export const selectMonth = state => state.transactions.month;
 export const selectIsLoading = state => state.transactions.isLoading;
 export const selectTransactionError = state => state.transactions.error;
+
+// Currency selectors
+export const selectCurrencyData = (state) => state.currency.data;
+export const selectCurrencyLoading = (state) =>
+  state.currency.isCurrencyLoading;
+export const selectCurrencyError = (state) => state.currency.isCurrencyError;
