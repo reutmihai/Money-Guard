@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select, { components } from 'react-select';
 import { fetchTransSumThunk } from './fetchTransSumThunk.jsx';
@@ -219,7 +219,7 @@ const StatisticsTable = () => {
             ))
           ) : (
             <StyledNoTransactions>
-              You don't have any transactions in this period
+              You don&apos;t have any transactions in this period
             </StyledNoTransactions>
           )}
         </StyledList>

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Chart } from './Chart.jsx';
+
 import StatisticsDashboard from './components/Statistics/StatisticsDashboard.jsx';
 import StatisticsTable from './components/Statistics/StatisticsDashboard.jsx';
 import {
@@ -7,13 +6,14 @@ import {
   StyledContent,
   StyledTable,
 } from './components/Statistics/Statistics.styled.js';
+import Chart from '../components/Statistics/Chart.jsx';
 
 const StatisticsPage = () => {
   return (
     <StyledContainer>
       <h2>Statistics</h2>
       <StyledContent>
-        <Chart />
+        <Chart/>
         <StyledTable>
           <StatisticsDashboard />
           <StatisticsTable />
