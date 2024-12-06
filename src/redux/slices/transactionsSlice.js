@@ -8,6 +8,7 @@ import {
   getTransactionsSummary,
 } from '../../services/transactionsAPI';
 
+
 const initialState = {
   transactions: [],
   transactionCategories: [],
