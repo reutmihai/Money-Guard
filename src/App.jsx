@@ -1,8 +1,10 @@
-// import "./assets/styles/App.css";
-// import MainOrganism from "./components/tranzaction/organism";
-
+import MainOrganism from "./components/tranzaction/organism";
 function App() {
-  return <div></div>;
+  return (
+    <>
+      <MainOrganism />
+    </>
+  );
 }
 
 export default App;

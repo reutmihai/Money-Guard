@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit';
-import storage from 'redux-persist/lib/storage';
+import { configureStore } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
 import {
   persistStore,
   persistReducer,
@@ -9,24 +9,31 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist';
-import { authReducer } from './slices/authSlice';
-import { transactionReducer } from './slices/transactionsSlice';
+} from "redux-persist";
+import { authReducer } from "./slices/authSlice";
+import { transactionReducer } from "./slices/transactionsSlice";
+import { currencyReducer } from "./slices/currencySlice";
 
 // Setting what data to save to local storage
 const authPersistConfig = {
-  key: 'auth',
+  key: "auth",
   storage,
-  whitelist: ['token', 'isLoggedIn', 'user'],
+  whitelist: ["token", "isLoggedIn", "user"],
 };
 
+const currencyPersistConfig = {
+  key: "currency",
+  storage,
+  whitelist: ["data"],
+};
 // Configuring the store
-export const store = configureStore({
+ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionReducer,
+    currency: persistReducer(currencyPersistConfig, currencyReducer),
   },
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
