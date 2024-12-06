@@ -21,7 +21,7 @@ const authPersistConfig = {
 };
 
 // Configuring the store
-export const store = configureStore({
+ const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionReducer,
@@ -36,3 +36,4 @@ export const store = configureStore({
 
 // Exporting persistor state
 export const persistor = persistStore(store);
+export default store
