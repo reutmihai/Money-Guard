@@ -1,14 +1,12 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import apiClient from './apiClient';
-
-
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import apiClient from "./apiClient";
 
 // Adding a transaction
 export const addTransaction = createAsyncThunk(
-  'transactions/addTransaction',
+  "transactions/addTransaction",
   async (data, thunkAPI) => {
     try {
-      const response = await apiClient.post('/transactions', data);
+      const response = await apiClient.post("/transactions", data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -18,10 +16,10 @@ export const addTransaction = createAsyncThunk(
 
 // Getting all transactions
 export const getTransactions = createAsyncThunk(
-  'transactions/getTransactions',
+  "transactions/getTransactions",
   async (_, thunkAPI) => {
     try {
-      const response = await apiClient.get('/transactions');
+      const response = await apiClient.get("/transactions");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -31,7 +29,7 @@ export const getTransactions = createAsyncThunk(
 
 // Updating a transaction
 export const updateTransaction = createAsyncThunk(
-  'transactions/updateTransaction',
+  "transactions/updateTransaction",
   async (data, thunkAPI) => {
     try {
       const response = await apiClient.patch(`/transactions/${data.id}`, data);
@@ -44,7 +42,7 @@ export const updateTransaction = createAsyncThunk(
 
 // Removing a transaction
 export const removeTransaction = createAsyncThunk(
-  'transactions/removeTransaction',
+  "transactions/removeTransaction",
   async (id, thunkAPI) => {
     try {
       const response = await apiClient.delete(`/transactions/${id}`);
@@ -57,10 +55,10 @@ export const removeTransaction = createAsyncThunk(
 
 // Getting all the possible type of transactions
 export const getTransactionCategories = createAsyncThunk(
-  'transactions/getTransactionCategories',
+  "transactions/getTransactionCategories",
   async (_, thunkAPI) => {
     try {
-      const response = await apiClient.get('/transactions-categories');
+      const response = await apiClient.get("/transactions-categories");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -71,7 +69,7 @@ export const getTransactionCategories = createAsyncThunk(
 // Getting the transaction summary
 
 export const getTransactionsSummary = createAsyncThunk(
-  'transactions/getTransactionSummary',
+  "transactions/getTransactionSummary",
   async (data, thunkAPI) => {
     try {
       const response = await apiClient.get(

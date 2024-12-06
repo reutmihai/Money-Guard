@@ -1,13 +1,26 @@
-import apiClient from './apiClient';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from "axios";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
+// Setting the base url in axios
+axios.defaults.baseURL = "https://wallet.b.goit.study/api/auth";
+
+// Adding token to authorization
+const addAuthHeader = (token) => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+// Removing token from authorization
+const removeAuthHeader = () => {
+  axios.defaults.headers.common.Authorization = "";
+};
 
 // Handling registration
 export const handleRegister = createAsyncThunk(
-  'auth/handleRegister',
+  "auth/handleRegister",
   async (data, thunkAPI) => {
     try {
-      const response = await apiClient.post(`/auth/sign-up`, data);
+      const response = await axios.post("/sign-up", data);
+      addAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -17,10 +30,11 @@ export const handleRegister = createAsyncThunk(
 
 // Handling login
 export const handleLogIn = createAsyncThunk(
-  'auth/handleLogIn',
+  "auth/handleLogIn",
   async (userData, thunkAPI) => {
     try {
-      const response = await apiClient.post('/auth/sign-in', userData);
+      const response = await axios.post("/sign-in", userData);
+      addAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -30,10 +44,11 @@ export const handleLogIn = createAsyncThunk(
 
 // Handling logout
 export const handleLogOut = createAsyncThunk(
-  'auth/handleLogOut',
+  "auth/handleLogOut",
   async (_, thunkAPI) => {
     try {
-      await apiClient.delete('/auth/sign-out');
+      await axios.delete("/sign-out");
+      removeAuthHeader();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
