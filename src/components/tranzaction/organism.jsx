@@ -46,7 +46,6 @@ const MainOrganism = ({ children }) => {
     <>
       <main>{children}</main>
       <header className={styles.header}>
-        {/* <h2 className={styles.balanceTitle}>Balance</h2> */}
         <p className={styles.balanceAmount}>${balance.toFixed(2)}</p>
       </header>
       <footer className="main-footer">
@@ -58,7 +57,6 @@ const MainOrganism = ({ children }) => {
         </button>
       </footer>
 
-      {/* Modal pentru Adăugare */}
       <GenericModal isOpen={isAddOpen} onClose={() => setIsAddOpen(false)}>
         <AddTransactionForm
           onSubmit={handleAddSubmit}
@@ -66,7 +64,6 @@ const MainOrganism = ({ children }) => {
         />
       </GenericModal>
 
-      {/* Modal pentru Editare */}
       {editData && (
         <GenericModal isOpen={isEditOpen} onClose={() => setIsEditOpen(false)}>
           <EditTransactionForm
@@ -77,7 +74,6 @@ const MainOrganism = ({ children }) => {
         </GenericModal>
       )}
 
-      {/* Listă de Tranzacții */}
       <TransactionList
         transactions={transactions}
         onEdit={(data) => {
