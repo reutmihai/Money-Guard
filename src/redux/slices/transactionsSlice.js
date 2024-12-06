@@ -1,27 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  addTransaction,
-  getTransactionCategories,
   getTransactions,
-  getTransactionsSummary,
+  addTransaction,
   removeTransaction,
   updateTransaction,
+  getTransactionCategories,
+  getTransactionsSummary,
 } from '../../services/transactionsAPI';
+
+
+const initialState = {
+  transactions: [],
+  transactionCategories: [],
+  categoriesSummary: [],
+  incomeSummary: null,
+  expenseSummary: null,
+  periodTotal: null,
+  year: null,
+  month: null,
+  isLoading: false,
+  error: null,
+};
 
 const transactionsSlice = createSlice({
   name: 'transactions',
-  initialState: {
-    transactions: [],
-    transactionCategories: [],
-    categoriesSummary: [],
-    incomeSummary: null,
-    expenseSummary: null,
-    periodTotal: null,
-    year: null,
-    month: null,
-    isLoading: false,
-    error: null,
-  },
+  initialState,
   reducers: {},
   extraReducers: builder => {
     builder
@@ -37,7 +40,7 @@ const transactionsSlice = createSlice({
       .addCase(getTransactions.rejected, (state, action) => {
         state.error = action.payload;
       })
-      //Add a transaction
+      // Add a transaction
       .addCase(addTransaction.pending, state => {
         state.isLoading = true;
       })
@@ -49,7 +52,7 @@ const transactionsSlice = createSlice({
       .addCase(addTransaction.rejected, (state, action) => {
         state.error = action.payload;
       })
-      //Remove a transaction
+      // Remove a transaction
       .addCase(removeTransaction.pending, state => {
         state.isLoading = true;
       })
@@ -64,7 +67,7 @@ const transactionsSlice = createSlice({
       .addCase(removeTransaction.rejected, (state, action) => {
         state.error = action.payload;
       })
-      //Update a transaction
+      // Update a transaction
       .addCase(updateTransaction.pending, state => {
         state.isLoading = true;
       })
@@ -79,7 +82,7 @@ const transactionsSlice = createSlice({
       .addCase(updateTransaction.rejected, (state, action) => {
         state.error = action.payload;
       })
-      //Get transaction categories
+      // Get transaction categories
       .addCase(getTransactionCategories.pending, state => {
         state.isLoading = true;
       })
@@ -91,7 +94,7 @@ const transactionsSlice = createSlice({
       .addCase(getTransactionCategories.rejected, (state, action) => {
         state.error = action.payload;
       })
-      //Getting transaction summaries
+      // Getting transaction summaries
       .addCase(getTransactionsSummary.pending, state => {
         state.isLoading = true;
       })
