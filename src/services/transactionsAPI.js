@@ -1,14 +1,15 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://wallet.b.goit.study/api';
+
+const BASE_URL = 'https://wallet.b.goit.study/api';
 
 // Adding a transaction
 export const addTransaction = createAsyncThunk(
   'transactions/addTransaction',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.post('/transactions', data);
+      const response = await axios.post(`${BASE_URL}/transactions`, data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -21,7 +22,7 @@ export const getTransactions = createAsyncThunk(
   'transactions/getTransactions',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/transactions');
+      const response = await axios.get(`${BASE_URL}/transactions`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -34,7 +35,7 @@ export const updateTransaction = createAsyncThunk(
   'transactions/updateTransaction',
   async (data, thunkAPI) => {
     try {
-      const response = await axios.patch(`/transactions/${data.id}`, data);
+      const response = await axios.patch(`${BASE_URL}/transactions/${data.id}`, data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -47,7 +48,7 @@ export const removeTransaction = createAsyncThunk(
   'transactions/removeTransaction',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/transactions/${id}`);
+      const response = await axios.delete(`${BASE_URL}/transactions/${id}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -60,7 +61,7 @@ export const getTransactionCategories = createAsyncThunk(
   'transactions/getTransactionCategories',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get('/transactions-categories');
+      const response = await axios.get(`${BASE_URL}/transactions-categories`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -75,7 +76,7 @@ export const getTransactionsSummary = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.get(
-        `/transactions-summary?month=${data.month}&year=${data.year}`
+        `${BASE_URL}/transactions-summary?month=${data.month}&year=${data.year}`
       );
       return response.data;
     } catch (error) {
