@@ -10,16 +10,18 @@ import {
 
 const transactionsSlice = createSlice({
   name: 'transactions',
-  transactions: [],
-  transactionCategories: [],
-  categoriesSummary: [],
-  incomeSummary: null,
-  expenseSummary: null,
-  periodTotal: null,
-  year: null,
-  month: null,
-  isLoading: false,
-  error: null,
+  initialState: {
+    transactions: [],
+    transactionCategories: [],
+    categoriesSummary: [],
+    incomeSummary: null,
+    expenseSummary: null,
+    periodTotal: null,
+    year: null,
+    month: null,
+    isLoading: false,
+    error: null,
+  },
   reducers: {},
   extraReducers: builder => {
     builder

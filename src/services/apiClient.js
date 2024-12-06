@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { store } from './store';
+import { store } from '../redux/store';
+
 
 // Creating axios instance
 const apiClient = axios.create({
