@@ -1,14 +1,13 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import apiClient from './apiClient';
 
 
-const BASE_URL = 'https://wallet.b.goit.study/api/users/current';
 
 export const fetchUser = createAsyncThunk(
   'auth/fetchUser',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`${BASE_URL}`);
+      const response = await apiClient.get('/users/current');
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
