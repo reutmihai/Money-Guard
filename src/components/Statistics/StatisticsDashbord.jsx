@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select, { components } from 'react-select';
 import { fetchTransSumThunk } from './fetchTransSumThunk.jsx';
@@ -13,7 +14,7 @@ import {
   StyledListContainer,
   StyledNoTransactions,
 } from './Statistics.styled.js';
-import { selectCategoriesSummary } from '../../redux/selectors';
+import { selectCategoriesSummary, selectExpenseSummary, selectIncomeSummary } from '../../redux/selectors';
 import { coloredCategoriesMap } from './Chart';
 
 const StatisticsDashboard = () => {
@@ -69,14 +70,14 @@ const StatisticsDashboard = () => {
     }),
     control: styles => ({
       ...styles,
-      backgroundColor: 'rgba(74, 86, 226, 0.1)',
-      marginBottom: '-6px',
-      outline: 'none',
+      background: 'linear-gradient(0deg, rgba(83, 61, 186, 0.70) 0%, rgba(80, 48, 154, 0.70) 43.14%, rgba(106, 70, 165, 0.52) 73.27%, rgba(133, 93, 175, 0.13) 120.03%)',
+      color: '#FBFBFB',
+      border: '1px solid rgba(255, 255, 255, 0.6)',
       borderRadius: '8px',
       height: '50px',
       paddingRight: '13px',
-      border: '1px solid rgba(255, 255, 255, 0.6)',
-      boxShadow: 'none',
+      boxShadow: '0px 4px 60px 0px rgba(0, 0, 0, 0.25)',
+      backdropFilter: 'blur(50px)',
       cursor: 'pointer',
       '&:hover': {
         border: '1px solid rgba(255, 255, 255, 0.6)',
@@ -95,29 +96,20 @@ const StatisticsDashboard = () => {
     menu: styles => ({
       ...styles,
       borderRadius: '8px',
-      backgroundColor: 'white',
+      background: 'linear-gradient(0deg, rgba(83, 61, 186, 0.70) 0%, rgba(80, 48, 154, 0.70) 43.14%, rgba(106, 70, 165, 0.52) 73.27%, rgba(133, 93, 175, 0.13) 120.03%)',
+      boxShadow: '0px 4px 60px 0px rgba(0, 0, 0, 0.25)',
+      backdropFilter: 'blur(50px)',
+      color: '#FBFBFB',
       fontFamily: "'Poppins-Regular', sans-serif",
       fontSize: '16px',
       fontWeight: '400',
     }),
-    option: (styles, { isFocused, isSelected }) => {
-      if (isFocused) {
-        return {
-          ...styles,
-          background: '#FFFFFF1A',
-          color: '#FF868D',
-        };
-      } else if (isSelected) {
-        return {
-          ...styles,
-          background: 'transparent',
-        };
-      } else {
-        return {
-          ...styles,
-        };
-      }
-    },
+    option: (styles, { isFocused, isSelected }) => ({
+      ...styles,
+      backgroundColor: isFocused ? 'rgba(255, 255, 255, 0.1)' : isSelected ? 'rgba(255, 255, 255, 0.2)' : 'transparent',
+      color: isFocused ? '#FF868D' : '#FBFBFB',
+      cursor: 'pointer',
+    }),
     menuList: base => ({
       ...base,
       '&::-webkit-scrollbar': {
@@ -137,16 +129,17 @@ const StatisticsDashboard = () => {
     return (
       <components.DropdownIndicator {...props}>
         {props.selectProps.menuIsOpen ? (
-          <SlArrowUp size={18} label="Arrow up" color={'var(--white)'} />
+          <SlArrowUp size={18} label="Arrow up" color={'#FBFBFB'} />
         ) : (
-          <SlArrowDown size={18} label="Arrow down" color={'var(--white)'} />
+          <SlArrowDown size={18} label="Arrow down" color={'#FBFBFB'} />
         )}
       </components.DropdownIndicator>
     );
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ display: 'flex', gap: '20px' }} >
+      
       <Select
         required
         options={months}
@@ -179,6 +172,8 @@ const formatNumber = number => {
 
 const StatisticsTable = () => {
   const summary = useSelector(selectCategoriesSummary);
+  const expenseSummary = useSelector(selectExpenseSummary);
+  const incomeSummary = useSelector(selectIncomeSummary);
 
   const dispatch = useDispatch();
 
@@ -189,8 +184,8 @@ const StatisticsTable = () => {
     dispatch(fetchTransSumThunk({ month: currentMonth, year: currentYear }));
   }, [dispatch, currentMonth, currentYear]);
 
-  const periodSummary = summary.categoriesSummary
-    ? summary.categoriesSummary
+  const periodSummary = summary
+    ? summary
         .filter(category => category.type === 'EXPENSE')
         .map(category => ({
           ...category,
@@ -199,10 +194,14 @@ const StatisticsTable = () => {
         .sort((a, b) => a.total - b.total)
     : [];
 
+  const validExpenseSummary = !isNaN(expenseSummary) ? expenseSummary : 0;
+  const validIncomeSummary = !isNaN(incomeSummary) ? incomeSummary : 0;
+
   return (
     <>
       <StyledCategory>
         <p>Category</p>
+
         <p>Sum</p>
       </StyledCategory>
       <StyledListContainer>
@@ -219,18 +218,18 @@ const StatisticsTable = () => {
             ))
           ) : (
             <StyledNoTransactions>
-              You don&apos;t have any transactions in this period
+              You don't have any transactions in this period
             </StyledNoTransactions>
           )}
         </StyledList>
       </StyledListContainer>
       <StyledExpenses>
         <h3>Expenses:</h3>
-        <p>{formatNumber(summary.expenseSummary)}</p>
+        <p>{formatNumber(validExpenseSummary)}</p>
       </StyledExpenses>
       <StyledIncome>
         <h3>Income:</h3>
-        <p>{formatNumber(summary.incomeSummary)}</p>
+        <p>{formatNumber(validIncomeSummary)}</p>
       </StyledIncome>
     </>
   );

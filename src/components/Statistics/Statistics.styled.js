@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
+
+
 export const StyledCategory = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 88%;
   height: 56px;
+  margin-top: 20px;
   padding: 16px 28px;
   border: none;
   border-radius: 8px;
@@ -16,6 +19,15 @@ export const StyledCategory = styled.div`
     color: var(--white);
     font-size: 16px;
     font-family: 'Poppins-SemiBold', sans-serif;
+  }
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 20px;
+    p {
+      font-size: 14px;
+    }
   }
 `;
 
@@ -81,6 +93,22 @@ export const StyledItem = styled.li`
     font-size: 14px;
     font-weight: 400;
   }
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+    div {
+      gap: 8px;
+    }
+    span {
+      width: 20px;
+      height: 20px;
+    }
+    p {
+      font-size: 12px;
+    }
+  }
 `;
 
 export const StyledNoTransactions = styled.p`
@@ -88,6 +116,11 @@ export const StyledNoTransactions = styled.p`
   font-family: 'Poppins-SemiBold', sans-serif;
   padding: 20px 28px 8px;
   text-align: center;
+
+  @media only screen and (max-width: 767px) {
+    padding: 16px 20px 6px;
+    font-size: 14px;
+  }
 `;
 
 export const StyledExpenses = styled.div`
@@ -102,6 +135,11 @@ export const StyledExpenses = styled.div`
 
   p {
     color: #ff868d;
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding: 12px 20px 2px;
+    font-size: 12px;
   }
 `;
 
@@ -122,6 +160,11 @@ export const StyledIncome = styled.div`
   @media only screen and (min-width: 768px) and (max-width: 1279px) {
     padding-bottom: 13px;
   }
+
+  @media only screen and (max-width: 767px) {
+    padding: 12px 20px 30px;
+    font-size: 12px;
+  }
 `;
 
 export const StyledDashboard = styled.div`
@@ -141,7 +184,6 @@ export const StyledDashboard = styled.div`
   }
 `;
 
-
 export const StyledContainer = styled.div`
   width: 100%;
   h2 {
@@ -153,7 +195,7 @@ export const StyledContainer = styled.div`
 
   @media only screen and (min-width: 768px) {
     h2 {
-      font-style: 30px;
+      font-size: 30px;
       padding-bottom: 20px;
     }
   }
@@ -163,6 +205,13 @@ export const StyledContainer = styled.div`
 
     h2 {
       padding: 0 0 20px 15px;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+    h2 {
+      font-size: 24px;
+      padding-bottom: 16px;
     }
   }
 `;
@@ -185,5 +234,10 @@ export const StyledTable = styled.div`
   @media only screen and (min-width: 768px) and (max-width: 1279px) {
     margin-top: -45px;
     width: 336px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    margin-top: 0;
+    width: 100%;
   }
 `;
