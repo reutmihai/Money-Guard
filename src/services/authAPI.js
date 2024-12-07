@@ -19,8 +19,7 @@ export const handleLogIn = createAsyncThunk(
   "auth/handleLogIn",
   async (userData, thunkAPI) => {
     try {
-      const response = await axios.post("/sign-in", userData);
-      addAuthHeader(response.data.token);
+      const response = await apiClient.post("/auth/sign-in", userData);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -33,8 +32,7 @@ export const handleLogOut = createAsyncThunk(
   "auth/handleLogOut",
   async (_, thunkAPI) => {
     try {
-      await axios.delete("/sign-out");
-      removeAuthHeader();
+      await apiClient.delete("/auth/sign-out");
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
