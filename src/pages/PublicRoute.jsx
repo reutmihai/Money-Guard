@@ -1,8 +1,15 @@
 import PropTypes from "prop-types";
 import { Navigate } from "react-router-dom";
+import {Suspense} from "react";
 
 const PublicRoute = ({ children, isAuthenticated }) => {
-    return !isAuthenticated ? children : <Navigate to="/dashboard" />;
+    return isAuthenticated ? (
+        <Navigate to="/Money-Guard/dashboard" />
+    ) : (
+        <Suspense fallback={<div>Loading...</div>}>
+            {children}
+        </Suspense>
+    );
 };
 
 PublicRoute.propTypes = {

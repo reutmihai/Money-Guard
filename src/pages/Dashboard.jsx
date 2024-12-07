@@ -1,18 +1,22 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import {AuthContext} from "../services/authContext.jsx";
+import { useDispatch } from "react-redux";
+import { handleLogOut } from "../services/authAPI";
 
 const Dashboard = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { logOut } = useContext(AuthContext);
 
     const handleLogout = () => {
-        localStorage.removeItem("token");
-        if (logOut) {
-            logOut();
-        }
-
-        navigate("/Money-Guard/login", { replace: true });
+        dispatch(handleLogOut())
+            .unwrap()
+            .then(() => {
+                localStorage.removeItem("token");
+                navigate("/Money-Guard/login", { replace: true });
+            })
+            .catch((error) => {
+                console.error("Logout failed:", error);
+            });
     };
 
     return (

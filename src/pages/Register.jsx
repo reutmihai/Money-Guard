@@ -1,11 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import {useNavigate} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {Formik, Form, Field, ErrorMessage} from "formik";
 import * as Yup from "yup";
-import {signUp} from "../services/authServices.jsx";
-import '../assets/styles/Register.css';
+import {handleRegister} from "../services/authAPI";
+import "../assets/styles/Register.css";
 
 const Register = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const isLoading = useSelector((state) => state.auth.isLoading);
+    const error = useSelector((state) => state.auth.error);
 
     const initialValues = {
         username: "",
@@ -27,12 +32,21 @@ const Register = () => {
             .required("Confirmarea parolei este obligatorie"),
     });
 
-    const handleSubmit = async (values, { setSubmitting, setErrors }) => {
+    const handleSubmit = async (values, {setSubmitting, setErrors}) => {
         try {
-            await signUp({ username: values.username,email: values.email, password: values.password });
-            navigate("/login"); // Navighează către Log In
+            const resultAction = await dispatch(
+                handleRegister({
+                    username: values.username,
+                    email: values.email,
+                    password: values.password,
+                })
+            ).unwrap();
+
+            console.log("Registration successful:", resultAction);
+            navigate("/Money-Guard/login", {replace: true});
         } catch (error) {
-            setErrors({ email: "Înredgistrarea a eșuat. Încearcă in nou." });
+            console.error("Registration failed:", error);
+            setErrors({email: "Înregistrarea a eșuat. Încearcă din nou."});
         } finally {
             setSubmitting(false);
         }
@@ -41,7 +55,7 @@ const Register = () => {
     return (
         <div className="register-container">
             <div className="register-card">
-                <img src="../assets/images/logo.png" alt="Logo" className="register-logo"/>
+                <h2>Register</h2>
                 <Formik
                     initialValues={initialValues}
                     validationSchema={validationSchema}
@@ -51,67 +65,84 @@ const Register = () => {
                         <Form>
                             <div className="input-container">
                                 <label htmlFor="username">
-                                    <i className="fa fa-user"></i> {/* Icon for username */}
+                                    <i className="fa fa-user"></i>
                                 </label>
-                                <Field
-                                    type="text"
-                                    name="username"
-                                    id="username"
-                                    placeholder="Name"
-                                    className="register-input"
-                                />
-                                <ErrorMessage name="username" component="div" className="error"/>
+                                <div className="column">
+                                    <Field
+                                        type="text"
+                                        name="username"
+                                        id="username"
+                                        placeholder="Name"
+                                        className="register-input"
+                                    />
+                                    <ErrorMessage name="username" component="div" className="error"/>
+                                </div>
                             </div>
 
                             <div className="input-container">
                                 <label htmlFor="email">
-                                    <i className="fa fa-envelope"></i> {/* Icon for email */}
+                                    <i className="fa fa-envelope"></i>
                                 </label>
-                                <Field
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    placeholder="E-mail"
-                                    className="register-input"
-                                />
-                                <ErrorMessage name="email" component="div" className="error"/>
+                                <div className="column">
+                                    <Field
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder="E-mail"
+                                        className="register-input"
+                                    />
+                                    <ErrorMessage name="email" component="div" className="error"/>
+                                </div>
                             </div>
 
                             <div className="input-container">
                                 <label htmlFor="password">
-                                    <i className="fa fa-lock"></i> {/* Icon for password */}
+                                    <i className="fa fa-lock"></i>
                                 </label>
-                                <Field
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    placeholder="Password"
-                                    className="register-input"
-                                />
-                                <ErrorMessage name="password" component="div" className="error"/>
+                                <div className="column">
+                                    <Field
+                                        type="password"
+                                        name="password"
+                                        id="password"
+                                        placeholder="Password"
+                                        className="register-input"
+                                    />
+                                    <ErrorMessage name="password" component="div" className="error"/>
+                                </div>
                             </div>
 
                             <div className="input-container">
                                 <label htmlFor="confirmPassword">
-                                    <i className="fa fa-lock"></i> {/* Icon for confirm password */}
+                                    <i className="fa fa-lock"></i>
                                 </label>
-                                <Field
-                                    type="password"
-                                    name="confirmPassword"
-                                    id="confirmPassword"
-                                    placeholder="Confirm password"
-                                    className="register-input"
-                                />
-                                <ErrorMessage name="confirmPassword" component="div" className="error"/>
+                                <div className="column">
+                                    <Field
+                                        type="password"
+                                        name="confirmPassword"
+                                        id="confirmPassword"
+                                        placeholder="Confirm password"
+                                        className="register-input"
+                                    />
+                                    <ErrorMessage
+                                        name="confirmPassword"
+                                        component="div"
+                                        className="error"
+                                    />
+                                </div>
                             </div>
 
-                            <button type="submit" disabled={isSubmitting} className="register-button">
-                                {isSubmitting ? "Se încarcă..." : "Register"}
+                            {error && <div className="error">{error}</div>} {/* Display server errors */}
+                            <button
+                                type="submit"
+                                disabled={isSubmitting || isLoading}
+                                className="register-button"
+                            >
+                                {isSubmitting || isLoading ? "Se încarcă..." : "Register"}
                             </button>
                             <button
                                 type="button"
                                 className="login-button"
-                                onClick={() => navigate('/Money-Guard/login')} // Redirecționează către login
+                                onClick={() => navigate("/Money-Guard/login")}
                             >
                                 Log In
                             </button>

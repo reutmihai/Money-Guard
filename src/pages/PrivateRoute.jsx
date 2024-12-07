@@ -1,12 +1,15 @@
 import PropTypes from "prop-types";
-import { Navigate } from "react-router-dom";
-import {useContext} from "react";
-import {AuthContext} from "../services/authContext.jsx";
+import {Navigate} from "react-router-dom";
+import {Suspense} from "react";
 
-const PrivateRoute = ({ children }) => {
-    const { isAuthenticated } = useContext(AuthContext);
-
-    return isAuthenticated ? children : <Navigate to="/Money-Guard/login" />;
+const PrivateRoute = ({ children, isAuthenticated }) => {
+    return isAuthenticated ? (
+        <Suspense fallback={<div>Loading...</div>}>
+            {children}
+        </Suspense>
+    ) : (
+        <Navigate to="/Money-Guard/login" />
+    );
 };
 
 PrivateRoute.propTypes = {
