@@ -6,7 +6,7 @@ import {
   updateTransaction,
   getTransactionCategories,
   getTransactionsSummary,
-} from "../../services/transactionsAPI.js";
+} from "../../services/transactionsAPI";
 
 const transactionsSlice = createSlice({
   name: "transactions",

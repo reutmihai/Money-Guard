@@ -10,7 +10,7 @@ const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: { username: null, email: null },
-    balance: null,
+    balance: 0,
     id: null,
     token: null,
     isLoggedIn: false,
@@ -29,6 +29,7 @@ const authSlice = createSlice({
         state.id = action.payload.id;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        localStorage.setItem('token',state.token)
       })
       .addCase(handleRegister.rejected, (state, action) => {
         state.isLoading = false;
@@ -44,6 +45,7 @@ const authSlice = createSlice({
         state.id = action.payload.id;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        localStorage.setItem('token',state.token)
       })
       .addCase(handleLogIn.rejected, (state, action) => {
         state.isLoading = false;
@@ -58,6 +60,7 @@ const authSlice = createSlice({
         state.id = null;
         state.token = null;
         state.isLoggedIn = false;
+        localStorage.removeItem('token');
       })
       .addCase(handleLogOut.rejected, (state, action) => {
         state.isLoading = false;
