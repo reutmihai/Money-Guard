@@ -1,15 +1,22 @@
-import { useSelector } from "react-redux";
+import PropTypes from "prop-types";
 import styles from "./balance.module.css";
 
-const Balance = () => {
-  const balance = useSelector((state) => state.transactions.balance);
+const Balance = ({ totalBalance }) => {
+  const balanceStyle =
+    totalBalance >= 0 ? styles.positiveBalance : styles.negativeBalance;
 
   return (
     <div className={styles.balanceContainer}>
-      <h2 className={styles.balanceTitle}>Current Balance</h2>
-      <p className={styles.balanceAmount}>${balance.toFixed(2)}</p>
+      <h2 className={styles.balanceTitle}>YOUR BALANCE</h2>
+      <p className={`${styles.balanceAmount} ${balanceStyle}`}>
+        ${totalBalance ? totalBalance.toFixed(2) : "0.00"}
+      </p>
     </div>
   );
+};
+
+Balance.propTypes = {
+  totalBalance: PropTypes.number.isRequired,
 };
 
 export default Balance;

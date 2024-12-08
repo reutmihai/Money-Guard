@@ -1,39 +1,61 @@
 import PropTypes from "prop-types";
 import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+import { useState } from "react";
+import { toast } from "react-toastify";
 import styles from "./forms.module.css";
+import CustomDropdown from "../forms/dropdown/custom-dropdown";
 
-const AddTransactionForm = ({ onSubmit, onCancel }) => {
-  const validationSchema = Yup.object().shape({
-    type: Yup.string().required("Transaction type is required"),
-    sum: Yup.number()
-      .required("Sum is required")
-      .positive("Sum must be greater than 0"),
-    date: Yup.date().required("Date is required"),
-    category: Yup.string().when("type", {
-      is: "expense",
-      then: Yup.string().required("Category is required for expenses"),
-    }),
-    comment: Yup.string().optional(),
-  });
+const AddTransactionForm = ({ onSubmit, onCancel, categories }) => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleValidation = (values) => {
+    const errors = {};
+
+    if (!values.type) {
+      errors.type = "Transaction type is required.";
+    } else if (values.type === "income" && values.categoryId) {
+      errors.categoryId = "Category should not be specified for income.";
+    }
+
+    if (!values.sum) {
+      errors.sum = "Amount is required.";
+    } else if (values.sum <= 0) {
+      errors.sum = "Amount must be greater than 0.";
+    }
+
+    if (values.type === "expense" && !values.categoryId) {
+      errors.categoryId = "Category is required for expenses.";
+    }
+
+    if (!values.date) {
+      errors.date = "Date is required.";
+    }
+
+    return errors;
+  };
 
   const initialValues = {
     type: "expense",
     sum: "",
-    date: new Date(),
-    category: "",
+    date: new Date().toISOString().split("T")[0],
+    categoryId: "",
     comment: "",
   };
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
+      validate={handleValidation}
+      onSubmit={(values) => {
+        values.type = values.type.toUpperCase();
+        onSubmit(values);
+        toast.success("Transaction added successfully!");
+      }}
     >
-      {({ values, setFieldValue }) => (
+      {({ values, setFieldValue, touched, errors }) => (
         <Form className={styles.formContainer}>
-          <h2 className={styles.formTitle}>Add transaction</h2>
+          <h2 className={styles.formTitle}>Add Transaction</h2>
+
           <div className={styles.toggleContainer}>
             <span
               className={`${styles.toggleText} ${
@@ -71,51 +93,74 @@ const AddTransactionForm = ({ onSubmit, onCancel }) => {
               Expense
             </span>
           </div>
+
           {values.type === "expense" && (
-            <div>
-              <Field
-                className={styles.detailsCategory}
-                name="category"
-                type="text"
-                placeholder="Select a category"
+            <div className={styles.dropdownWrapper}>
+              <CustomDropdown
+                categories={categories}
+                value={values.categoryId}
+                onChange={(id) => {
+                  setFieldValue("categoryId", id);
+                  setIsDropdownOpen(false);
+                }}
+                onOpen={() => setIsDropdownOpen(true)}
+                onClose={() => setIsDropdownOpen(false)}
               />
+
+              {touched.categoryId && errors.categoryId && (
+                <div className={styles.error}>{errors.categoryId}</div>
+              )}
             </div>
           )}
-          <div className={styles.detailsIncome}>
-            <div>
-              <Field
-                className={styles.detailsIncomeDate}
-                name="sum"
-                type="number"
-                placeholder="0.00"
-              />
-            </div>
-            <div>
-              <Field
-                className={styles.detailsIncomeDate}
-                name="date"
-                type="date"
-              />
-            </div>
-          </div>
 
-          <div>
+          <div
+            className={`${styles.detailsIncome} ${
+              isDropdownOpen ? styles.blur : ""
+            }`}
+          >
             <Field
-              className={styles.detailsComment}
+              name="sum"
+              type="number"
+              className={styles.detailsIncomeDate}
+              placeholder="0.00"
+            />
+            {touched.sum && errors.sum && (
+              <div className={styles.error}>{errors.sum}</div>
+            )}
+
+            <Field
+              name="date"
+              type="date"
+              className={styles.detailsIncomeDate}
+            />
+            {touched.date && errors.date && (
+              <div className={styles.error}>{errors.date}</div>
+            )}
+          </div>
+          <div
+            className={`${styles.detailsCommentContainer} ${
+              isDropdownOpen ? styles.blur : ""
+            }`}
+          >
+            <Field
               name="comment"
               type="text"
+              className={styles.detailsComment}
               placeholder="Comment"
             />
+            {touched.comment && errors.comment && (
+              <div className={styles.error}>{errors.comment}</div>
+            )}
           </div>
 
           <div className={styles.formBtns}>
-            <button className={styles.btnAdd} type="submit">
+            <button type="submit" className={styles.btnAdd}>
               Add
             </button>
             <button
-              className={styles.btnCancelTranzaction}
               type="button"
               onClick={onCancel}
+              className={styles.btnCancelTranzaction}
             >
               Cancel
             </button>
@@ -129,6 +174,7 @@ const AddTransactionForm = ({ onSubmit, onCancel }) => {
 AddTransactionForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
+  categories: PropTypes.array.isRequired,
 };
 
 export default AddTransactionForm;

@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import styles from "./modal.module.css";
-
 const GenericModal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 

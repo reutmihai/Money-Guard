@@ -6,6 +6,7 @@ export const addTransaction = createAsyncThunk(
   "transactions/addTransaction",
   async (data, thunkAPI) => {
     try {
+      // console.log("Data to be sent to API:", data);sami
       const response = await apiClient.post("/transactions", data);
       return response.data;
     } catch (error) {
@@ -30,10 +31,9 @@ export const getTransactions = createAsyncThunk(
 // Updating a transaction
 export const updateTransaction = createAsyncThunk(
   "transactions/updateTransaction",
-  async (data, thunkAPI) => {
+  async ({ id, data }, thunkAPI) => {
     try {
-      // addAuthorization()
-      const response = await apiClient.patch(`/transactions/${data.id}`, data);
+      const response = await apiClient.patch(`/transactions/${id}`, data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -79,6 +79,19 @@ export const getTransactionsSummary = createAsyncThunk(
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchUserBalance = createAsyncThunk(
+  "auth/fetchUserBalance",
+  async (_, thunkAPI) => {
+    try {
+      const response = await apiClient.get("/user/balance");
+      return response.data.balance;
+    } catch (error) {
+      console.error("Error fetching user balance:", error);
+      return thunkAPI.rejectWithValue(error.response?.data || "Unknown error");
     }
   }
 );

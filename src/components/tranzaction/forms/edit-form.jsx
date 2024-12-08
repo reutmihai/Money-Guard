@@ -1,55 +1,143 @@
-import PropTypes from "prop-types";
 import { Formik, Form, Field } from "formik";
-import * as Yup from "yup";
+import PropTypes from "prop-types";
+import Swal from "sweetalert2";
 import styles from "./forms.module.css";
+import { updateTransaction } from "../../../services/transactionsAPI";
+import { useDispatch, useSelector } from "react-redux";
+import CustomDropdown from "./dropdown/custom-dropdown";
 
-const EditTransactionForm = ({ initialValues, onSubmit, onCancel }) => {
-  const validationSchema = Yup.object().shape({
-    sum: Yup.number().required("Sum is required").positive("Must be positive"),
-    date: Yup.date().required("Date is required"),
-    comment: Yup.string().optional(),
-  });
+const EditTransactionForm = ({ initialValues, onCancel }) => {
+  const dispatch = useDispatch();
+  const categories = useSelector(
+    (state) => state.transactions.transactionCategories
+  );
+
+  const handleSubmit = async (values, { setErrors }) => {
+    const errors = {};
+
+    if (!values.amount || values.amount <= 0) {
+      errors.amount = "Amount must be greater than 0";
+    }
+
+    if (!values.transactionDate) {
+      errors.transactionDate = "Date is required";
+    }
+
+    if (values.type === "EXPENSE" && !values.categoryId) {
+      errors.categoryId = "Category is required for expenses";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setErrors(errors);
+      return;
+    }
+
+    const dataToSend = {
+      transactionDate: new Date(values.transactionDate).toISOString(),
+      type: values.type,
+      comment: values.comment,
+      amount:
+        values.type === "INCOME"
+          ? Math.abs(values.amount)
+          : -Math.abs(values.amount),
+      categoryId: values.type === "EXPENSE" ? values.categoryId : undefined,
+    };
+
+    try {
+      await dispatch(
+        updateTransaction({
+          id: values.id,
+          data: dataToSend,
+        })
+      ).unwrap();
+
+      Swal.fire({
+        icon: "success",
+        title: "Updated!",
+        text: "Transaction updated successfully!",
+        timer: 2000,
+        showConfirmButton: false,
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.response?.data || error.message,
+      });
+    }
+  };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {() => (
-        <Form className={styles.formContainer}>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+      {({ values, setFieldValue }) => (
+        <Form className={styles.formContainerEdit}>
           <h2 className={styles.formTitle}>Edit Transaction</h2>
-          <div>
+
+          <div className={styles.toggleContainer}>
+            <span
+              className={`${styles.toggleText} ${
+                values.type === "INCOME" ? styles.activeIncomeText : ""
+              }`}
+              onClick={() => setFieldValue("type", "INCOME")}
+            >
+              Income
+            </span>
+            <span className={styles.toggleDivider}>/</span>
+            <span
+              className={`${styles.toggleText} ${
+                values.type === "EXPENSE" ? styles.activeExpenseText : ""
+              }`}
+              onClick={() => setFieldValue("type", "EXPENSE")}
+            >
+              Expense
+            </span>
+          </div>
+
+          {values.type === "EXPENSE" && (
+            <CustomDropdown
+              categories={categories}
+              value={values.categoryId}
+              onChange={(id) => setFieldValue("categoryId", id)}
+            />
+          )}
+
+          <div className={styles.detailsIncome}>
             <Field
-              className={styles.detailsIncomeDate}
-              name="sum"
+              name="amount"
               type="number"
-              placeholder="0.00"
-            />
-          </div>
-          <div>
-            <Field
               className={styles.detailsIncomeDate}
-              name="date"
+              placeholder="0.00"
+              min="0"
+              onKeyDown={(e) => {
+                if (e.key === "-" || e.key === "e") {
+                  e.preventDefault();
+                }
+              }}
+            />
+
+            <Field
+              name="transactionDate"
               type="date"
+              className={styles.detailsIncomeDate}
             />
           </div>
           <div>
             <Field
-              className={styles.detailsComment}
               name="comment"
               type="text"
+              className={styles.detailsComment}
               placeholder="Comment"
             />
           </div>
+
           <div className={styles.formBtns}>
-            <button className={styles.btnSave} type="submit">
+            <button type="submit" className={styles.btnAdd}>
               Save
             </button>
             <button
-              className={styles.btnCancel}
               type="button"
               onClick={onCancel}
+              className={styles.btnCancelTranzaction}
             >
               Cancel
             </button>
@@ -62,7 +150,6 @@ const EditTransactionForm = ({ initialValues, onSubmit, onCancel }) => {
 
 EditTransactionForm.propTypes = {
   initialValues: PropTypes.object.isRequired,
-  onSubmit: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
 };
 
