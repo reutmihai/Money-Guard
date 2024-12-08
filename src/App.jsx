@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PublicRoute from "./pages/PublicRoute.jsx";
 import PrivateRoute from "./pages/PrivateRoute.jsx";
 import { useSelector } from "react-redux";
+import MainOrganism from "./components/tranzaction/organism.jsx"
 // import Home from "./pages/home.jsx";
 
 const Login = React.lazy(() => import("./pages/Login.jsx"));
@@ -44,6 +45,7 @@ const App = () => {
             element={
               <PrivateRoute isAuthenticated={isAuthenticated}>
                 <Dashboard />
+                <MainOrganism/>
               </PrivateRoute>
             }
           />

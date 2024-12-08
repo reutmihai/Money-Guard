@@ -25,7 +25,6 @@ const TransactionList = ({
           <span>Category</span>
           <span>Comment</span>
           <span>Sum</span>
-          <span>Actions</span>
         </div>
         {transactions.length > 0 ? (
           transactions.map((transaction) => (

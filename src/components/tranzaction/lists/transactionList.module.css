@@ -90,9 +90,26 @@
   color: #4caf50;
 }
 
-/* .deleteButton:hover {
-  color: #f44336;
-} */
+.deleteButton {
+  display: inline-flex;
+  padding: 4px 12px;
+  justify-content: center;
+  gap: 2px;
+  width: 69px;
+  height: 29px;
+
+  color: #fff;
+
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  border: none;
+  border-radius: 18px;
+  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+ }
 
 .noTransactions {
   text-align: center;

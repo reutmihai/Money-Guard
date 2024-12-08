@@ -133,7 +133,7 @@ const MainOrganism = ({ children }) => {
       <div className={activeModal ? styles.blurBackground : ""}>
         <main>{children}</main>
 
-        <Balance totalBalance={totalBalance} />
+        {/* <Balance totalBalance={totalBalance} /> */}
 
         <div className={styles.list}>
           <TransactionList
