@@ -1,0 +1,101 @@
+.transactionListContainer {
+  padding: 20px;
+
+  border-radius: 10px;
+
+  color: #ffffff;
+}
+
+.listTitle {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e0e0e0;
+}
+
+.transactionTable {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tableHeader,
+.tableRow {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  background: rgba(82, 59, 126, 0.6);
+  padding: 10px 15px;
+}
+
+.tableHeader {
+  font-weight: 600;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  padding: 20px;
+  background: rgba(82, 59, 126, 0.6);
+  border-radius: 5px;
+}
+
+.tableRow {
+  background: none;
+  font-size: 14px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  border-bottom: 1px solid var(--inputs-border-color);
+  padding: 5px 10px;
+}
+
+.tableRow:hover {
+  transform: scale(1.02);
+  /* background-color: #383865; */
+}
+
+.typeIncome {
+  color: #4caf50;
+  font-weight: bold;
+  margin-left: 23px;
+}
+
+.typeExpense {
+  color: #f44336;
+  font-weight: bold;
+  margin-left: 23px;
+}
+
+.amount {
+  font-weight: bold;
+  text-align: left;
+
+  color: #fbc02d;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.editButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  margin-right: 20px;
+}
+
+.editButton:hover {
+  color: #4caf50;
+}
+
+/* .deleteButton:hover {
+  color: #f44336;
+} */
+
+.noTransactions {
+  text-align: center;
+  padding: 20px;
+  color: #cccccc;
+}

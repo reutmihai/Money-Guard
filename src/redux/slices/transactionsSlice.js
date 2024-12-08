@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 import {
   getTransactions,
   addTransaction,
@@ -6,11 +6,10 @@ import {
   updateTransaction,
   getTransactionCategories,
   getTransactionsSummary,
-} from '../../services/transactionsAPI';
-
+} from "../../services/transactionsAPI";
 
 const transactionsSlice = createSlice({
-  name: 'transactions',
+  name: "transactions",
   initialState: {
     transactions: [],
     transactionCategories: [],
@@ -24,10 +23,10 @@ const transactionsSlice = createSlice({
     error: null,
   },
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       // Get all transactions
-      .addCase(getTransactions.pending, state => {
+      .addCase(getTransactions.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(getTransactions.fulfilled, (state, action) => {
@@ -39,7 +38,7 @@ const transactionsSlice = createSlice({
         state.error = action.payload;
       })
       // Add a transaction
-      .addCase(addTransaction.pending, state => {
+      .addCase(addTransaction.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(addTransaction.fulfilled, (state, action) => {
@@ -51,14 +50,14 @@ const transactionsSlice = createSlice({
         state.error = action.payload;
       })
       // Remove a transaction
-      .addCase(removeTransaction.pending, state => {
+      .addCase(removeTransaction.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(removeTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         const index = state.transactions.findIndex(
-          transaction => transaction.id === action.payload.id
+          (transaction) => transaction.id === action.payload.id
         );
         state.transactions.splice(index, 1);
       })
@@ -66,14 +65,14 @@ const transactionsSlice = createSlice({
         state.error = action.payload;
       })
       // Update a transaction
-      .addCase(updateTransaction.pending, state => {
+      .addCase(updateTransaction.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(updateTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         const index = state.transactions.findIndex(
-          transaction => transaction.id === action.payload.id
+          (transaction) => transaction.id === action.payload.id
         );
         state.transactions.splice(index, 1, action.payload);
       })
@@ -81,7 +80,7 @@ const transactionsSlice = createSlice({
         state.error = action.payload;
       })
       // Get transaction categories
-      .addCase(getTransactionCategories.pending, state => {
+      .addCase(getTransactionCategories.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(getTransactionCategories.fulfilled, (state, action) => {
@@ -93,7 +92,7 @@ const transactionsSlice = createSlice({
         state.error = action.payload;
       })
       // Getting transaction summaries
-      .addCase(getTransactionsSummary.pending, state => {
+      .addCase(getTransactionsSummary.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(getTransactionsSummary.fulfilled, (state, action) => {

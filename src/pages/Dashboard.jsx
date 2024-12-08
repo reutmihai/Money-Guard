@@ -1,30 +1,30 @@
-import React from "react";
+// import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { handleLogOut } from "../services/authAPI";
 
 const Dashboard = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const handleLogout = () => {
-        dispatch(handleLogOut())
-            .unwrap()
-            .then(() => {
-                localStorage.removeItem("token");
-                navigate("/Money-Guard/login", { replace: true });
-            })
-            .catch((error) => {
-                console.error("Logout failed:", error);
-            });
-    };
+  const handleLogout = () => {
+    dispatch(handleLogOut())
+      .unwrap()
+      .then(() => {
+        localStorage.removeItem("token");
+        navigate("/Money-Guard/login", { replace: true });
+      })
+      .catch((error) => {
+        console.error("Logout failed:", error);
+      });
+  };
 
-    return (
-        <div>
-            <h2>Welcome to the Dashboard</h2>
-            <button onClick={handleLogout}>Log Out</button>
-        </div>
-    );
+  return (
+    <div>
+      <h2>Welcome to the Dashboard</h2>
+      <button onClick={handleLogout}>Log Out</button>
+    </div>
+  );
 };
 
 export default Dashboard;

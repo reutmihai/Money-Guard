@@ -1,0 +1,35 @@
+.balanceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: var(--modal-bg-color);
+  max-width: 480px;
+  align-items: self-start;
+  padding-left: 70px;
+  margin-top: 30px;
+}
+
+.balanceTitle {
+  font-size: 12px;
+  padding-top: 8px;
+  color: var(--inputs-border-color);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.balanceAmount {
+  font-size: 30px;
+  padding-bottom: 11px;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+/* .positiveBalance {
+} */
+
+.negativeBalance {
+  color: red;
+}
