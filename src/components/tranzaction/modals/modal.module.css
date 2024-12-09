@@ -1,6 +1,15 @@
 @import url("../../../assets/styles/global.css");
 
+.organismContainer {
+  position: relative;
+  max-width: 800px;
+  height: 90vh;
+  margin: 0 auto;
+}
 .openModalBtn {
+  position: absolute;
+  bottom: 2rem;
+  right: 1rem;
   border-radius: 50%;
   font-size: 90px;
   display: flex;
@@ -18,8 +27,8 @@
   pointer-events: none;
 }
 .modalWrapper {
-  position: absolute;
-  top: 15%;
+  position: fixed;
+  top: 10%;
   left: 50%;
   transform: translate(-50%);
   background: var(--modal-bg-color);
