@@ -1,0 +1,15 @@
+.dashboardContainer {
+  width: 1280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.logOutContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0 auto;
+}

@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 const Login = React.lazy(() => import("./pages/Login.jsx"));
 const Register = React.lazy(() => import("./pages/Register.jsx"));
-const Dashboard = React.lazy(() => import("./pages/Dashboard.jsx"));
+const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard.jsx"));
 
 const App = () => {
   const isAuthenticated = useSelector((state) => state.auth.isLoggedIn);
