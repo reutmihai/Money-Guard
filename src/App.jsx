@@ -12,6 +12,8 @@ const Register = React.lazy(() => import("./pages/Register.jsx"));
 const Dashboard = React.lazy(() => import("./pages/Dashboard.jsx"));
 import StatisticsPage from "./pages/StatisticsPage.jsx";
 
+// import StatisticsPage from "./pages/StatisticsPage.jsx";
+
 const App = () => {
   const isAuthenticated = useSelector((state) => state.auth.isLoggedIn);
   const isLoading = useSelector((state) => state.auth.isLoading);

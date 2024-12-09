@@ -1,10 +1,12 @@
-// import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { handleLogOut } from "../services/authAPI";
+
+import { handleLogOut } from "../../services/authAPI";
+import styles from "./Dashboard.module.css";
+
 // import StatisticsPage from "./StatisticsPage";
 
-const Dashboard = () => {
+function LogOut() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,12 +23,13 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Welcome to the Dashboard</h2>
+    <div className={styles.logOutContainer}>
+      <div>
+        <h2>Money Guard</h2>
+      </div>
       <button onClick={handleLogout}>Log Out</button>
       {/* <StatisticsPage /> */}
     </div>
   );
-};
-
-export default Dashboard;
+}
+export default LogOut;
