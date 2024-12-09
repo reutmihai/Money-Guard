@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
 import { handleLogOut } from "../../services/authAPI";
 import styles from "./Dashboard.module.css";
+
+// import StatisticsPage from "./StatisticsPage";
 
 function LogOut() {
   const dispatch = useDispatch();
