@@ -1,11 +1,17 @@
-// import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+<<<<<<< HEAD:src/pages/Dashboard.jsx
 import { handleLogOut } from "../services/authAPI";
 // import StatisticsPage from "./StatisticsPage";
+=======
+import { handleLogOut } from "../../services/authAPI";
+import styles from './Dashboard.module.css';
+>>>>>>> main:src/pages/Dashboard/LogOut.jsx
 
-const Dashboard = () => {
-  const dispatch = useDispatch();
+
+
+function LogOut() {
+    const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -21,12 +27,13 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Welcome to the Dashboard</h2>
+      <div className={styles.logOutContainer}>
+          <div>
+              <h2>Money Guard</h2>
+          </div>
       <button onClick={handleLogout}>Log Out</button>
       {/* <StatisticsPage /> */}
     </div>
   );
 };
-
-export default Dashboard;
+export default LogOut;
