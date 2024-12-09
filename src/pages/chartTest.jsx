@@ -1,10 +1,10 @@
-import React from 'react';
-import Chart from '../components/Statistics/Chart';
+// import React from 'react';
+import Chart from "../components/Statistics/Chart";
 
 const TestChartPage = () => {
   const testData = [
-    { label: 'Entertainment', value: 300 },
-    { label: 'Car', value: 100 },
+    { label: "Entertainment", value: 300 },
+    { label: "Car", value: 100 },
   ];
 
   return (
@@ -16,4 +16,3 @@ const TestChartPage = () => {
 };
 
 export default TestChartPage;
-

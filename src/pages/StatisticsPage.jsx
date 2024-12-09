@@ -1,20 +1,16 @@
-import Chart from "../components/Statistics/Chart";
-import { StyledContainer, StyledContent, StyledTable } from "../components/Statistics/Statistics.styled";
-import StatisticsDashboard, { StatisticsTable } from "../components/Statistics/StatisticsDashbord.jsx";
+import StatisticsTab from "../components/statistic/statistic-tab.jsx/statistic-tab";
+
+import MainOrganism from "../components/tranzaction/organism";
 
 const StatisticsPage = () => {
   return (
-    <StyledContainer>
-      <h2>Statistics</h2>
-      <StyledContent>
-        <Chart/>
-        <StyledTable>
-          <StatisticsDashboard />
-          <StatisticsTable />
-        </StyledTable>
-      </StyledContent>
-    </StyledContainer>
+    <div>
+      <div>
+        <MainOrganism />
+        <StatisticsTab />
+      </div>
+    </div>
   );
 };
 
-export default StatisticsPage
+export default StatisticsPage;

@@ -6,7 +6,6 @@ export const addTransaction = createAsyncThunk(
   "transactions/addTransaction",
   async (data, thunkAPI) => {
     try {
-      // console.log("Data to be sent to API:", data);sami
       const response = await apiClient.post("/transactions", data);
       return response.data;
     } catch (error) {
@@ -76,13 +75,14 @@ export const getTransactionsSummary = createAsyncThunk(
       const response = await apiClient.get(
         `/transactions-summary?month=${data.month}&year=${data.year}`
       );
+      // console.log("API Response:", response.data);
       return response.data;
     } catch (error) {
+      // console.error("Error fetching summary:", error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
 export const fetchUserBalance = createAsyncThunk(
   "auth/fetchUserBalance",
   async (_, thunkAPI) => {
