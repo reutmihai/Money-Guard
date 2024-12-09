@@ -27,7 +27,7 @@ const currencyPersistConfig = {
   whitelist: ["data"],
 };
 // Configuring the store
- export const store = configureStore({
+export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     transactions: transactionReducer,

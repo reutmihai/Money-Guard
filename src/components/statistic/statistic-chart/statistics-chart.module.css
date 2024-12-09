@@ -1,0 +1,18 @@
+.chartContainer {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 1;
+  margin: auto;
+}
+
+.centerText {
+  position: absolute;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

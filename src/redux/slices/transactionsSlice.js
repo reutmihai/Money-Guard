@@ -97,12 +97,12 @@ const transactionsSlice = createSlice({
       })
       .addCase(getTransactionsSummary.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.categoriesSummary = action.payload.categoriesSummary;
-        state.incomeSummary = action.payload.incomeSummary;
-        state.expenseSummary = action.payload.expenseSummary;
-        state.periodTotal = action.payload.periodTotal;
-        state.year = action.payload.year;
-        state.month = action.payload.month;
+        state.categoriesSummary = action.payload.categoriesSummary || [];
+        state.incomeSummary = action.payload.incomeSummary || 0;
+        state.expenseSummary = action.payload.expenseSummary || 0;
+        state.periodTotal = action.payload.periodTotal || 0;
+        state.year = action.payload.year || new Date().getFullYear();
+        state.month = action.payload.month || new Date().getMonth() + 1;
       })
       .addCase(getTransactionsSummary.rejected, (state, action) => {
         state.error = action.payload;

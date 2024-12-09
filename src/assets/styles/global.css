@@ -9,9 +9,9 @@
   --dropdown-bg-color: linear-gradient(
     0deg,
     rgba(83, 61, 186, 0.5) 20%,
-    /* Mai puțin opac */ rgba(80, 48, 154, 0.5) 43.14%,
-    /* Mai puțin opac */ rgba(106, 70, 165, 0.4) 73.27%,
-    /* Mai puțin opac */ rgba(133, 93, 175, 0.1) 120.03% /* Aproape invizibil */
+    rgba(80, 48, 154, 0.5) 43.14%,
+    rgba(106, 70, 165, 0.4) 73.27%,
+    rgba(133, 93, 175, 0.1) 120.03%
   );
 
   --buttons-bg: linear-gradient(
