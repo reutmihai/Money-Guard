@@ -1,12 +1,12 @@
 import StatisticsTab from "../components/statistic/statistic-tab.jsx/statistic-tab";
 
-import MainOrganism from "../components/tranzaction/organism";
+// import MainOrganism from "../components/tranzaction/organism";
 
 const StatisticsPage = () => {
   return (
     <div>
       <div>
-        <MainOrganism />
+        {/* <MainOrganism /> */}
         <StatisticsTab />
       </div>
     </div>
