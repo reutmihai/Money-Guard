@@ -16,3 +16,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+ .chartSize {
+    min-width: 280px;
+      height: 280px;
+    
+      @media (min-width: 768px) {
+        max-width: 336px;
+        height: 336px;
+      }
+    
+      @media (min-width: 1280px) {
+        max-width: 288px;
+        height: 288px;
+      }
+ }
