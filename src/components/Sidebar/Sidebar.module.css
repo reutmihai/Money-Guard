@@ -1,0 +1,7 @@
+.container{
+    overflow: hidden;
+    width: 30rem;
+    height: calc(100vh - 80px);
+    border-right: 2px solid var(--inputs-border-color);
+}
+
