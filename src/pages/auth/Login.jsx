@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { handleLogIn } from "../../services/authAPI";
 import styles from "./auth.module.css";
-// import sprite from "../../assets/sprite.svg";
+import sprite from "../../assets/sprite.svg";
 
 const Login = () => {
   const { notify } = useNotification();
@@ -50,6 +50,9 @@ const Login = () => {
     <div className={styles.loginContainer}>
       <div className={styles.authCard}>
         <div>
+        <svg className={styles["icon-logo"]}>
+            <use xlinkHref={`${sprite}#icon-logo`} />
+        </svg>
           <h2 className={styles.loginTitle}>Money Guard</h2>
         </div>
         <Formik

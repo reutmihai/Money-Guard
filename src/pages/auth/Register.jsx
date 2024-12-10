@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { handleRegister } from "../../services/authAPI";
 import styles from "./auth.module.css";
+import sprite from "../../assets/sprite.svg";
 
 const Register = () => {
   const { notify } = useNotification();
@@ -64,7 +65,12 @@ const Register = () => {
   return (
     <div className={styles.registerContainer}>
       <div className={styles.authCard}>
-        <h2>Money Guard</h2>
+        <div>
+          <svg className={styles["icon-logo"]}>
+            <use xlinkHref={`${sprite}#icon-logo`} />
+          </svg>
+          <h2>Money Guard</h2>
+        </div>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}

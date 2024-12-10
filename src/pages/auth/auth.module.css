@@ -123,6 +123,12 @@
 
   text-align: start;
 }
+
+  .icon-logo {
+    width: 60px;
+    height: 60px;
+  }
+
 @media screen and (max-width: 768px) {
   .loginContainer {
     max-width: 100%;
