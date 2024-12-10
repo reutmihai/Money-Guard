@@ -177,3 +177,18 @@
   background: var(--primary-white-color);
   color: black;
 }
+
+ @media (max-width: 480px) {
+  .detailsIncome {
+    flex-direction: column;
+  }
+
+  .detailsIncomeDate {
+    min-width: 400px;
+    text-align: left;
+  }
+
+  .formBtns button{
+    min-width: 400px;
+}
+ }
