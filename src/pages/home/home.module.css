@@ -1,4 +1,12 @@
-/* .homeContainer {
-  margin: 0;
+.homeContainer{
+  position:relative;
+}
+
+
+.outletContainer{
+  margin:0;
   padding: 0;
-} */
+  position: absolute;
+  top:5rem;
+  left: 480px;
+}

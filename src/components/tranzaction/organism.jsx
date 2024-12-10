@@ -14,7 +14,7 @@ import TransactionList from "./lists/tranzaction-list";
 import AddTransactionForm from "./forms/add-form";
 import EditTransactionForm from "./forms/edit-form";
 import GenericModal from "./modals/generic-modal";
-// import Balance from "./balance/balance";
+import Balance from "./balance/balance";
 import styles from "./modals/modal.module.css";
 
 const MainOrganism = ({ children }) => {
@@ -28,10 +28,10 @@ const MainOrganism = ({ children }) => {
   const [activeModal, setActiveModal] = useState(null);
   const [selectedTransaction, setSelectedTransaction] = useState(null);
 
-  // const totalBalance = transactions.reduce(
-  //   (acc, transaction) => acc + transaction.amount,
-  //   0
-  // );
+  const totalBalance = transactions.reduce(
+    (acc, transaction) => acc + transaction.amount,
+    0
+  );
 
   useEffect(() => {
     dispatch(getTransactions());
@@ -133,7 +133,7 @@ const MainOrganism = ({ children }) => {
       <div className={activeModal ? styles.blurBackground : ""}>
         <main>{children}</main>
 
-        {/* <Balance totalBalance={totalBalance} /> */}
+        <Balance totalBalance={totalBalance} />
 
         <div className={styles.list}>
           <TransactionList

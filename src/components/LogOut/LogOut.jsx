@@ -29,9 +29,9 @@ function LogOut() {
       <div>
         <p className={style.userName}>{user}</p>
       </div>
-      <div className={style.logoutContainer}>
+      <div onClick={handleLogout} className={style.logoutContainer}>
         <img src={exit} alt='exit icon' className={style.icon} />
-        <p onClick={handleLogout} className={style.logoutText}>
+        <p className={style.logoutText}>
           Exit
         </p>
       </div>
