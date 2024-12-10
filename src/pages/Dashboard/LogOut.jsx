@@ -28,7 +28,6 @@ function LogOut() {
         <h2>Money Guard</h2>
       </div>
       <button onClick={handleLogout}>Log Out</button>
-      {/* <StatisticsPage /> */}
     </div>
   );
 }
