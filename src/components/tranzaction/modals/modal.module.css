@@ -66,7 +66,8 @@
 
   .modalWrapper {
     position: fixed;
-    top: 20%; 
+    top: 0; 
+    bottom: 0;
     max-width: 24rem; 
     padding: 1.5rem 2rem; 
   }
@@ -83,6 +84,29 @@
   
  }
 
- @media (max-width: 468px) {
-  
+ @media (max-width: 480px) {
+    .modalWrapper {
+    padding: 1rem;
+    width: 95%;
+    max-width: 95%;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .toggleSwitch {
+    padding: 0.4rem;
+  }
+
+  .input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .addButton,
+  .cancelButton {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
  }
