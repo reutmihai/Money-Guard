@@ -54,10 +54,10 @@ const App = () => {
                 <PrivateRoute isAuthenticated={isAuthenticated}>
                   <Dashboard />
                   <StatisticsPage />
+                  <MainOrganism />
                 </PrivateRoute>
               }
             />
-
 
             {/* Redirect către /login by default */}
             <Route path="*" element={<Navigate to="/Money-Guard/login" />} />

@@ -8,7 +8,6 @@ const TransactionList = ({
   onDelete,
   onEdit,
 }) => {
-  // Helper function to get category name by ID
   const getCategoryName = (categoryId) => {
     if (!categories || categories.length === 0) {
       return "No category";
@@ -56,7 +55,7 @@ const TransactionList = ({
                   onClick={() => onEdit(transaction)}
                   className={styles.editButton}
                 >
-                  <svg className={styles['icon-edit']}>
+                  <svg className={styles["icon-edit"]}>
                     <use xlinkHref={`${sprite}#icon-edit`}></use>
                   </svg>
                 </button>
