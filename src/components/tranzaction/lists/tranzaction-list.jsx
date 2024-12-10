@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "./transactionList.module.css";
+import sprite from "../../../assets/sprite.svg";
 
 const TransactionList = ({
   transactions,
@@ -55,7 +56,9 @@ const TransactionList = ({
                   onClick={() => onEdit(transaction)}
                   className={styles.editButton}
                 >
-                  ✏️
+                  <svg className={styles['icon-edit']}>
+                    <use xlinkHref={`${sprite}#icon-edit`}></use>
+                  </svg>
                 </button>
                 <button
                   onClick={() => onDelete(transaction.id)}

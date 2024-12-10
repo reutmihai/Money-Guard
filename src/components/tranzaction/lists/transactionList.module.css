@@ -1,5 +1,5 @@
 .transactionListContainer {
-  padding: 20px;
+  /* padding: 30px; */
 
   border-radius: 10px;
 
@@ -80,8 +80,6 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #ffffff;
-  font-size: 16px;
   transition: color 0.3s ease;
   margin-right: 20px;
 }
@@ -98,4 +96,51 @@
   text-align: center;
   padding: 20px;
   color: #cccccc;
+}
+
+.icon-edit {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}
+
+@media (max-width: 768px) {
+  .transactionTable {
+    gap: 5px; 
+  }
+
+  .tableHeader,
+  .tableRow {
+    grid-template-columns: 1fr 0.5fr 0.8fr 0.8fr 1fr auto; 
+    font-size: 14px; 
+    padding: 10px; 
+  }
+
+  .tableHeader {
+    font-size: 15px;
+    padding: 15px;
+  }
+
+  .tableRow {
+    font-size: 12px;
+  }
+
+  .actionButtons {
+    gap: 5px; 
+  }
+
+  .editButton,
+  .deleteButton {
+    margin: 0; 
+  }
+
+  .typeIncome,
+  .typeExpense {
+    margin-left: 10px; 
+  }
+
+  .icon-edit {
+    width: 20px;
+    height: 20px;
+  }
 }

@@ -4,7 +4,7 @@ import PublicRoute from "./pages/PublicRoute.jsx";
 import PrivateRoute from "./pages/PrivateRoute.jsx";
 import { useSelector } from "react-redux";
 // import Home from "./pages/home/home.jsx";
-// import MainOrganism from "./components/tranzaction/organism.jsx";
+import MainOrganism from "./components/tranzaction/organism.jsx";
 // import styles from "./assets/styles/index.css";
 
 const Login = React.lazy(() => import("./pages/Login.jsx"));
@@ -52,6 +52,7 @@ const App = () => {
                 <Dashboard />
 
                 <StatisticsPage />
+                <MainOrganism />
               </PrivateRoute>
             }
           />

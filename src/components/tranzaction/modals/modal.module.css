@@ -4,7 +4,6 @@
   position: relative;
   max-width: 800px;
   height: 90vh;
-  margin: 0 auto;
 }
 .openModalBtn {
   position: absolute;
@@ -35,6 +34,8 @@
   max-width: 33.75rem;
   padding: 2.5rem 4rem;
   border-radius: 0.5rem;
+  backdrop-filter: blur(3px);
+  pointer-events:fill;
 }
 .modalContent {
   margin-top: -20px;
@@ -49,6 +50,39 @@
   background: transparent;
   outline: none;
 }
-.list {
-  margin-top: 100px;
+
+@media (max-width: 768px) {
+  .organismContainer {
+  max-width: 700px;
+  height: 50vh;
 }
+ .openModalBtn {
+    padding-top: 5px;
+    font-size: 44px; 
+    width: 44px;
+    height: 44px;
+
+  }
+
+  .modalWrapper {
+    position: fixed;
+    top: 20%; 
+    max-width: 24rem; 
+    padding: 1.5rem 2rem; 
+  }
+
+  .modalClose {
+    font-size: 1.2rem; 
+    top: 5px;
+    right: 5px;
+  }
+
+  .blurBackground {
+    filter: blur(3px); 
+  }
+  
+ }
+
+ @media (max-width: 468px) {
+  
+ }
