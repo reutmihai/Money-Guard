@@ -2,7 +2,7 @@ import LogOut from "../LogOut/LogOut";
 import Logo from "../Logo/Logo";
 import style from './Header.module.css'
 
-const Header = () => {
+const AppHeader = () => {
     return(
         <div className={style.header}>
         <Logo/>
@@ -10,4 +10,4 @@ const Header = () => {
         </div>
     )
 }
-export default Header;
+export default AppHeader;
