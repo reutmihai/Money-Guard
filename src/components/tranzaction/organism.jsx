@@ -14,6 +14,7 @@ import AddTransactionForm from "./forms/add-form";
 import EditTransactionForm from "./forms/edit-form";
 import GenericModal from "./modals/generic-modal";
 import { useNotification } from "../../components/notification/notificationContext";
+import Balance from "./balance/balance";
 import styles from "./modals/modal.module.css";
 
 const MainOrganism = ({ children }) => {
