@@ -4,6 +4,7 @@
   max-width: 350px;
   aspect-ratio: 1;
   margin: auto;
+  margin-bottom: 20px;
 }
 
 .centerText {
@@ -19,6 +20,7 @@
  .chartSize {
     min-width: 280px;
       height: 280px;
+      
     
       @media (min-width: 768px) {
         max-width: 336px;

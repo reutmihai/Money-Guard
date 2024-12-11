@@ -3,6 +3,7 @@
 min-width: 100%;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 @media (max-width: 767px) {
   .statisticsTab {
@@ -17,6 +18,7 @@ min-width: 100%;
   line-height: 45px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  color: white;
 }
 .dashboardContainer {
   display: flex;

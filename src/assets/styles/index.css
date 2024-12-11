@@ -42,13 +42,24 @@ button {
   border-radius: 8px;
   border: none;
   /* border: 1px solid transparent; */
-
+ height: auto;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background: var(--buttons-bg);
-  cursor: pointer;
+    cursor: pointer;
+background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%);  cursor: pointer;
+transition: 0.5s;
+background-size: 200% auto;
+color: white;
+box-shadow: 0 0 20px #eee;
   /* transition: border-color 0.25s; */
+}
+
+button:hover {
+ background-position: right center;
+/* change the direction of the change here */
+ color: #fff;
+text-decoration: none;
 }
 /* button:hover {
   border-color: #646cff;
