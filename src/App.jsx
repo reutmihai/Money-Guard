@@ -10,7 +10,7 @@ import './assets/styles/index.css';
 
 const Login = lazy(() => import('./pages/auth/Login.jsx'));
 const Register = lazy(() => import('./pages/auth/Register.jsx'));
-const Home = lazy(() => import('./pages/home/Home.jsx'));
+const Home = lazy(() => import('./pages/home/home.jsx'));
 const StatisticsTab = lazy(()=>import('./components/statistic/statistic-tab.jsx/statistic-tab.jsx'))
 
 
