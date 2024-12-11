@@ -1,4 +1,14 @@
-/* .homeContainer {
-  margin: 0;
-  padding: 0;
-} */
+.homeContainer{
+  position:relative;
+}
+
+
+.outletContainer{
+  margin:0;
+  padding: 45px 70px;
+  position: absolute;
+  top:5rem;
+  left: 480px;
+  height: calc(100vh - 5rem);
+  width: calc(100vw - 480px);
+}
