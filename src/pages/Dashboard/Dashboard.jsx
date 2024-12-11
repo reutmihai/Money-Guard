@@ -1,7 +1,7 @@
 import LogOut from "./LogOut";
 import styles from "./Dashboard.module.css";
-import Balance from "../../components/tranzaction/balance/balance";
-import Currency from "../../components/Currency/Currency";
+// import Balance from "../../components/tranzaction/balance/balance";
+// import Currency from "../../components/Currency/Currency";
 
 const Dashboard = () => {
   return (
@@ -11,8 +11,8 @@ const Dashboard = () => {
       </div>
       <div>
         <div>
-          <Balance />
-          <Currency />
+          {/* <Balance />
+          <Currency /> */}
         </div>
       </div>
     </div>
