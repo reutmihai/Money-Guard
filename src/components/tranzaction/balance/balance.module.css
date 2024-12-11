@@ -4,7 +4,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   background-color: var(--modal-bg-color);
-  max-width: 480px;
+  width: 100%;
   padding-left: 70px;
 }
 

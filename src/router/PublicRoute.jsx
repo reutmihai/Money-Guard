@@ -8,7 +8,7 @@ const PublicRoute = ({ children }) => {
   const isAuthenticated = useSelector(selectLoggedIn);
 
   return isAuthenticated ? (
-    <Navigate to='/Money-Guard/home' />
+    <Navigate to='/Money-Guard/' />
   ) : (
     <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
   );
