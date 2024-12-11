@@ -1,12 +1,16 @@
-import { lazy } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import PublicRoute from './router/PublicRoute.jsx';
-import PrivateRoute from './router/PrivateRoute.jsx';
-import OutletCanvas from './components/OutletCanvas/OutletCanvas.jsx';
+import React, { lazy } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { NotificationProvider } from "./components/notification/notificationContext.jsx";
+import { useSelector } from "react-redux";
+import PublicRoute from './router/PublicRoute.jsx'
+import PrivateRoute from './router/PrivateRoute.jsx'
+import './assets/styles/index.css'
 
-const Login = lazy(() => import('./pages/Login.jsx'));
-const Register = lazy(() => import('./pages/Register.jsx'));
+const Login = React.lazy(() => import("./pages/auth/Login.jsx"));
+const Register = React.lazy(() => import("./pages/auth/Register.jsx"));
+
+import OutletCanvas from "./components/OutletCanvas/OutletCanvas.jsx";
+
 const Home = lazy(() => import('./pages/home/Home.jsx'));
 
 const App = () => {
@@ -18,16 +22,17 @@ const App = () => {
 	}
 
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route
-					path='/Money-Guard/login'
-					element={
-						<PublicRoute isAuthenticated={isAuthenticated}>
-							<Login />
-						</PublicRoute>
-					}
-				/>
+    <NotificationProvider>
+  		<BrowserRouter>
+    			<Routes>
+  				<Route
+  					path='/Money-Guard/login'
+  					element={
+  						<PublicRoute isAuthenticated={isAuthenticated}>
+  							<Login />
+  						</PublicRoute>
+  					}
+  				/>
 
 				<Route
 					path='/Money-Guard/register'
@@ -54,6 +59,7 @@ const App = () => {
 				<Route path='*' element={<Navigate to='/Money-Guard/login' />} />
 			</Routes>
 		</BrowserRouter>
+    </NotificationProvider>
 	);
 };
 
