@@ -25,3 +25,20 @@
   height: 24px;
 }
 
+.navigation {
+  color: white;
+}
+
+.active {
+  font-weight: 800;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: var(--inputs-border-color);
+}
+
+.active .icon {
+  fill: #734AEF;
+}
