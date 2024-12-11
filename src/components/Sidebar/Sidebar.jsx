@@ -4,6 +4,8 @@ import style from './Sidebar.module.css';
 import { NavLink } from 'react-router-dom';
 import { getSvg } from '../NavSVG/NavSVG';
 
+
+// Variables that will change depending on which navlink is active
 let homeLogo = 'homeLogo'
 let statsLogo = 'statsLogo'
 
