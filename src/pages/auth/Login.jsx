@@ -49,8 +49,8 @@ const Login = () => {
   return (
     <div className={styles.loginContainer}>
       <div className={styles.authCard}>
-        <div>
-          <svg className={styles["icon-logo"]}>
+        <div className={styles.logo}>
+          <svg className={styles["icon-logo"]} width="50" height="50">
             <use xlinkHref={`${sprite}#icon-logo`} />
           </svg>
           <h2 className={styles.loginTitle}>Money Guard</h2>
