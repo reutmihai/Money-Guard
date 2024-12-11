@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
-    "homepage": "https://reutmihai.github.io/Money-Guard"
+    "homepage": "https://reutmihai.github.com/Money-Guard"
   },
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",
