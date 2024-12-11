@@ -69,7 +69,7 @@ const Register = () => {
           <svg className={styles["icon-logo"]}>
             <use xlinkHref={`${sprite}#icon-logo`} />
           </svg>
-          <h2>Money Guard</h2>
+          <h2 className={styles.loginTitle}>Money Guard</h2>
         </div>
         <Formik
           initialValues={initialValues}
@@ -79,9 +79,9 @@ const Register = () => {
           {({ isSubmitting, values }) => (
             <Form>
               <div className={styles.inputContainer}>
-                <label htmlFor="username">
-                  <i className="fa fa-user"></i>
-                </label>
+                <svg className={styles.icon}>
+                  <use xlinkHref={`${sprite}#icon-user`} />
+                </svg>
                 <div className="column">
                   <Field
                     type="text"
@@ -99,9 +99,9 @@ const Register = () => {
               </div>
 
               <div className={styles.inputContainer}>
-                <label htmlFor="email">
-                  <i className="fa fa-envelope"></i>
-                </label>
+                <svg className={styles.icon}>
+                  <use xlinkHref={`${sprite}#icon-email`} />
+                </svg>
                 <div className="column">
                   <Field
                     type="email"
@@ -119,9 +119,9 @@ const Register = () => {
               </div>
 
               <div className={styles.inputContainer}>
-                <label htmlFor="password">
-                  <i className="fa fa-lock"></i>
-                </label>
+                <svg className={styles.icon}>
+                  <use xlinkHref={`${sprite}#icon-lock`} />
+                </svg>
                 <div className="column">
                   <Field
                     type={showPassword ? "text" : "password"}
@@ -160,9 +160,9 @@ const Register = () => {
               </div>
 
               <div className={styles.inputContainer}>
-                <label htmlFor="confirmPassword">
-                  <i className="fa fa-lock"></i>
-                </label>
+                <svg className={styles.icon}>
+                  <use xlinkHref={`${sprite}#icon-lock`} />
+                </svg>
                 <div className="column">
                   <Field
                     type={showConfirmPassword ? "text" : "password"}

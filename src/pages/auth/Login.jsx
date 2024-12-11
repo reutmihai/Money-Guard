@@ -50,9 +50,9 @@ const Login = () => {
     <div className={styles.loginContainer}>
       <div className={styles.authCard}>
         <div>
-        <svg className={styles["icon-logo"]}>
+          <svg className={styles["icon-logo"]}>
             <use xlinkHref={`${sprite}#icon-logo`} />
-        </svg>
+          </svg>
           <h2 className={styles.loginTitle}>Money Guard</h2>
         </div>
         <Formik
@@ -64,7 +64,9 @@ const Login = () => {
             <Form>
               <div className={styles.inputContainer}>
                 <label htmlFor="email">
-                  <i className="fa fa-envelope"></i>
+                  <svg className={styles.icon}>
+                    <use xlinkHref={`${sprite}#icon-email`} />
+                  </svg>
                 </label>
                 <div className="column">
                   <Field
@@ -82,9 +84,9 @@ const Login = () => {
                 </div>
               </div>
               <div className={styles.inputContainer}>
-                <label htmlFor="password">
-                  <i className="fa fa-lock"></i>
-                </label>
+                <svg className={styles.icon}>
+                  <use xlinkHref={`${sprite}#icon-lock`} />
+                </svg>
                 <div className="column">
                   <Field
                     type={showPassword ? "text" : "password"}
