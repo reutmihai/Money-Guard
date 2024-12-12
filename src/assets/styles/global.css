@@ -1,9 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 :root {
-  --font-primary: "Poppins", sans-serif;
+  --font-primary: 'Poppins', sans-serif;
   --primary-white-color: #fbfbfb;
   --yellow-color: #ffb627;
   --color-expense: #ff868d;
+  --purple-color: #623f8b;
   --inputs-border-color: rgba(255, 255, 255, 0.4);
   --modal-bg-color: rgba(255, 255, 255, 0.27);
   --dropdown-bg-color: linear-gradient(

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import logo from '../../assets/logo.svg'
 import { useDispatch, useSelector } from 'react-redux';
 import { handleLogOut } from '../../services/authAPI';
 import exit from '../../assets/exit.svg';
@@ -13,6 +14,8 @@ function LogOut() {
 
   const user = useSelector(selectUsername);
 
+
+
   const handleLogout = () => {
     dispatch(handleLogOut())
       .unwrap()
@@ -25,6 +28,7 @@ function LogOut() {
   };
 
   return (
+    <>
     <div className={style.userContainer}>
       <div>
         <p className={style.userName}>{user}</p>
@@ -36,6 +40,14 @@ function LogOut() {
         </p>
       </div>
     </div>
+    <div className={style.confirmModal}>
+        <img src={logo} className={style.logo} />
+        <p className={style.appName}>Money Guard</p>
+        <p className={style.confirmText}>Are you sure you want to log out?</p>
+        <button className={style.confirmBtn}>LOGOUT</button>
+        <button className={style.cancelBtn} id={style.cancel}>CANCEL</button>
+      </div>
+    </>
   );
 }
 export default LogOut;
