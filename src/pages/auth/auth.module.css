@@ -26,7 +26,7 @@
 }
 
 .authCard {
-  /* background: var(--modal-bg-color); */
+  background: var(--modal-bg-color);
   border-radius: 8px;
   padding: 20px 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -46,7 +46,6 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   margin-top: 0;
-
 }
 
 .inputContainer {

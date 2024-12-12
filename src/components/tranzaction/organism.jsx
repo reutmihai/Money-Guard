@@ -95,14 +95,7 @@ const MainOrganism = ({ children }) => {
       <div className={activeModal ? styles.blurBackground : ""}>
         <main>{children}</main>
         {/* <TransactionList /> */}
-        <div className={styles.list}>
-          {/* <TransactionList
-            transactions={transactions}
-            categories={transactionCategories}
-            onDelete={handleDeleteTransaction}
-            onEdit={handleEditTransaction}
-          /> */}
-        </div>
+
         <OpenModalButton onClick={() => setActiveModal("add")} />
       </div>
       <GenericModal
