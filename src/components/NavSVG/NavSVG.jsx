@@ -5,6 +5,7 @@ import statsLogoColor from '../../assets/statsLogoColor.svg';
 
 
 
+
 // Switch statement that accepts a string and returns the corresponding svg 
 export const getSvg = name => {
   let svg;

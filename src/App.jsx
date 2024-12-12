@@ -54,6 +54,7 @@ const App = () => {
             }>
             <Route path='' element={<TransactionList />} />
             <Route path='statistics' element={<StatisticsTab />} />
+            <Route path='currency' element={<StatisticsTab/>}/>
           </Route>
 
           {/* Redirect către /login by default */}

@@ -36,9 +36,4 @@
 .icon {
   width: 24px;
   height: 24px;
-  fill: var(--inputs-border-color);
-}
-
-.active .icon {
-  fill: #734AEF;
 }
