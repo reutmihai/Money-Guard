@@ -6,11 +6,24 @@
   align-items: center;
 }
 .formContainerEdit {
+  position: fixed;
   display: flex;
   flex-direction: column;
   gap: 40px;
   align-items: center;
+  top: 10%;
+  padding: 50px 50px;
+  border-radius: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  background: rgba(255, 255, 255, 0);
+
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.3px);
+  -webkit-backdrop-filter: blur(8.3px);
+  border: 1px solid var(--primary-white-color);
 }
+
 .toggleContainer {
   display: flex;
   align-items: center;
@@ -178,7 +191,7 @@
   color: black;
 }
 
- @media (max-width: 480px) {
+@media (max-width: 480px) {
   .detailsIncome {
     flex-direction: column;
   }
@@ -188,7 +201,7 @@
     text-align: left;
   }
 
-  .formBtns button{
+  .formBtns button {
     min-width: 400px;
+  }
 }
- }
