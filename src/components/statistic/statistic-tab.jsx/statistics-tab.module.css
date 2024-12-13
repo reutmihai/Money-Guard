@@ -1,8 +1,16 @@
 .statisticsTab {
   display: flex;
-
+min-width: 100%;
   align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
+@media (max-width: 767px) {
+  .statisticsTab {
+    flex-direction: column;
+    align-items: center;
+  }}
+
 .title {
   font-family: var(--font-primary);
   font-size: 30px;
@@ -10,12 +18,14 @@
   line-height: 45px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  color: white;
 }
 .dashboardContainer {
   display: flex;
   gap: 15px;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .select {
@@ -57,10 +67,30 @@
   justify-content: space-between;
   padding: 0 10px;
   font-size: 14px;
+  
 }
 .expense {
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
   font-size: 14px;
+}
+
+.number {
+  font-weight: 700;
+  background: linear-gradient(135deg, #3B2667 10%, #BC78EC 100%);
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@media (max-width: 767px) {
+  .dashboardContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .select {
+    width: 100%;
+    max-width: 300px;
+  }
 }

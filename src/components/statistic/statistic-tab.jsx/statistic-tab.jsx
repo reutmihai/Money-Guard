@@ -86,11 +86,11 @@ const StatisticsTab = () => {
           <div className={styles.balanceContainer}>
             <div className={styles.expense}>
               <span> Expenses:</span>
-              <span>{totalExpense.toLocaleString()}</span>
+              <span className={styles.number}>{totalExpense.toLocaleString()}</span>
             </div>
             <div className={styles.income}>
               <span> Income:</span>
-              <span>{totalIncome.toLocaleString()}</span>
+              <span className={styles.number}>{totalIncome.toLocaleString()}</span>
             </div>
           </div>
         </div>

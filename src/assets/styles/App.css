@@ -1,7 +1,17 @@
+*,
+*::before,
+*::after {
+  margin: 0 auto;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 #root {
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  box-sizing: border-box;
+      
 }
 
 .logo {

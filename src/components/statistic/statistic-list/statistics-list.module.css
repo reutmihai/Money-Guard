@@ -1,5 +1,5 @@
 .listContainer {
-  width: 395px;
+  max-width: 395px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -30,11 +30,11 @@
 .categoryName {
   flex: 1;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .categoryTotal {
   font-size: 14px;
-  color: #aaa;
+  color: #FBFBFB;
   font-weight: bold;
 }

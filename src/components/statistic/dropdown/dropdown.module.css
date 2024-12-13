@@ -3,15 +3,15 @@
   width: 200px;
   cursor: pointer;
   user-select: none;
+  
 }
 
 .selected {
   background: rgba(74, 86, 226, 0.1);
-
   color: white;
   padding: 5px;
   border-radius: 5px;
-  border: 1px solid #444;
+  border: 1px solid #ffffff99;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
