@@ -54,7 +54,7 @@ const StatisticsChart = ({ data, totalBalance, onColorsGenerated }) => {
 
   return (
     <div className={styles.chartContainer}>
-      <Doughnut data={chartData} options={options} />
+      <Doughnut className={styles.chartSize} data={chartData} options={options} />
       <div className={styles.centerText}>{totalBalance.toLocaleString()}</div>
     </div>
   );
