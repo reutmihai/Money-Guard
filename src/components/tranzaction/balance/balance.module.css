@@ -1,11 +1,15 @@
 .balanceContainer {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
-  background-color: var(--modal-bg-color);
-  width: 100%;
-  padding-left: 70px;
+  background-color: var(--mobile-bg-balance);
+  padding: 8px 32px;
+  margin: 12px 20px 32px 20px;
+  min-width: 12.5rem;
+  max-width: 100%;
+  backdrop-filter: blur(100px);
+  box-shadow: 0px 4px 60px 0px #00000040;
+  border-radius: 8px;
 }
 
 .balanceTitle {

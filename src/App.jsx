@@ -11,6 +11,7 @@ import "./assets/styles/index.css";
 const Login = lazy(() => import("./pages/auth/Login.jsx"));
 const Register = lazy(() => import("./pages/auth/Register.jsx"));
 const Home = lazy(() => import("./pages/home/home.jsx"));
+const MobileHome = lazy(()=> import("./pages/home/mobileHome.jsx"));
 const StatisticsTab = lazy(() =>
   import("./components/statistic/statistic-tab.jsx/statistic-tab.jsx")
 );
@@ -50,6 +51,7 @@ const App = () => {
             element={
               <PrivateRoute>
                 <Home />
+                <MobileHome/>
               </PrivateRoute>
             }>
             <Route path='' element={<TransactionList />} />

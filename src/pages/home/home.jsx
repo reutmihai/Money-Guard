@@ -9,13 +9,12 @@ function Home() {
     <div className={style.homeContainer}>
       <AppHeader />
       <Sidebar />
-
-      <div className={style.outletContainer}>
+      <div>
         <Outlet />
       </div>
-
       <MainOrganism />
     </div>
+    
   );
 }
 export default Home;

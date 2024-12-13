@@ -1,27 +1,17 @@
 .userContainer {
   display: flex;
   flex-direction: row;
-  background-color: linear-gradient(270.02deg, #2e1746 3.2%, #2e225f 99.98%);
+  gap: 8px;
 }
 
 .userName {
   color: var(--inputs-border-color);
 }
 
-.userName::after {
-  content: '';
-  border-left: 2px solid var(--inputs-border-color);
-  height: 18px;
-  margin-left: 12px;
-  margin-right: 12px;
-}
-
 .logoutContainer {
   display: flex;
   justify-self: center;
   align-items: center;
-  gap: 8px;
-  cursor: pointer;
   color: var(--inputs-border-color);
 }
 
@@ -103,3 +93,21 @@
   border-radius: 20px;
   color: var(--purple-color);
 }
+
+
+/* pentru tab si desktop */
+/* .userName::after {
+  content: '';
+  border-left: 2px solid var(--inputs-border-color);
+  height: 18px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+  .logoutContainer {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--inputs-border-color);
+} */

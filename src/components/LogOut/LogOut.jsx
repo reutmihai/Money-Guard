@@ -36,7 +36,6 @@ function LogOut() {
         </div>
         <div onClick={() => setIsOpen(true)} className={style.logoutContainer}>
           <img src={exit} alt='exit icon' className={style.icon} />
-          <p className={style.logoutText}>Exit</p>
         </div>
       </div>
       {open && (
