@@ -1,5 +1,4 @@
 .transactionListContainer {
-  padding: 20px;
   border-radius: 10px;
   color: #ffffff;
 }
@@ -12,6 +11,7 @@
   color: #e0e0e0;
 }
 
+/* Desktop Table Styles */
 .transactionTable {
   display: flex;
   flex-direction: column;
@@ -46,7 +46,6 @@
 
 .tableRow:hover {
   transform: scale(1.02);
-  /* background-color: #383865; */
 }
 
 .typeIncome {
@@ -64,7 +63,6 @@
 .amount {
   font-weight: bold;
   text-align: left;
-
   color: #fbc02d;
 }
 
@@ -78,8 +76,6 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #ffffff;
-  font-size: 16px;
   transition: color 0.3s ease;
   margin-right: 20px;
 }
@@ -88,12 +84,83 @@
   color: #4caf50;
 }
 
-/* .deleteButton:hover {
-  color: #f44336;
-} */
-
 .noTransactions {
   text-align: center;
   padding: 20px;
   color: #cccccc;
+}
+
+.icon-edit {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}
+
+/* Mobile Card Styles */
+.transactionCard {
+  display: none;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+
+  background: rgba(82, 59, 126, 0.6);
+}
+.listswrapper {
+  width: 100%;
+  padding: 10px 20px;
+}
+.spansMobile {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+  border-bottom: 1px solid var(--inputs-border-color);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.transactionCard span {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.transactionCard .amount {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fbc02d;
+}
+
+.transactionCardActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.transactionCardActions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.transactionCardActions button:hover {
+  color: #4caf50;
+}
+
+/* Mobile-Specific Styles */
+@media (max-width: 768px) {
+  .transactionTable {
+    display: none;
+  }
+
+  .transactionCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    gap: 30px;
+  }
 }

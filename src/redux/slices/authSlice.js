@@ -9,7 +9,7 @@ import { fetchUser } from '../../services/fetchUser';
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: { username: null, email: null },
+    user: { username: 'null', email: 'null' },
     balance: 0,
     id: null,
     token: null,
@@ -40,8 +40,8 @@ const authSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(handleLogIn.fulfilled, (state, action) => {
-        state.user.username = action.payload.username;
-        state.user.email = action.payload.email;
+        state.user.username = action.payload.user.username;
+        state.user.email = action.payload.user.email;
         state.balance = action.payload.balance;
         state.id = action.payload.id;
         state.token = action.payload.token;

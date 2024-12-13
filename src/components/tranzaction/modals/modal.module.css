@@ -1,6 +1,20 @@
 @import url("../../../assets/styles/global.css");
 
+.organismContainer {
+  position: relative;
+  /* max-width: 800px; */
+  /* height: 90vh; */
+}
+.blur {
+  filter: blur(10px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
+
 .openModalBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 3rem;
   border-radius: 50%;
   font-size: 90px;
   display: flex;
@@ -13,19 +27,26 @@
   height: 70px;
 }
 .blurBackground {
-  filter: blur(5px);
+  filter: blur(5px) !important;
   transition: filter 0.3s ease;
   pointer-events: none;
 }
 .modalWrapper {
-  position: absolute;
-  top: 15%;
+  position: fixed;
+  top: 10%;
   left: 50%;
   transform: translate(-50%);
-  background: var(--modal-bg-color);
   max-width: 33.75rem;
   padding: 2.5rem 4rem;
   border-radius: 0.5rem;
+  backdrop-filter: blur(3px);
+  pointer-events: fill;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.3px);
+  -webkit-backdrop-filter: blur(8.3px);
+  border: 1px solid rgba(255, 255, 255, 0.89);
 }
 .modalContent {
   margin-top: -20px;
@@ -40,6 +61,61 @@
   background: transparent;
   outline: none;
 }
-.list {
-  margin-top: 100px;
+
+@media (max-width: 768px) {
+  .organismContainer {
+    max-width: 700px;
+    height: 50vh;
+  }
+  .openModalBtn {
+    padding-top: 5px;
+    font-size: 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .modalWrapper {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    max-width: 24rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .modalClose {
+    font-size: 1.2rem;
+    top: 5px;
+    right: 5px;
+  }
+
+  .blurBackground {
+    filter: blur(3px);
+  }
+}
+
+@media (max-width: 480px) {
+  .modalWrapper {
+    padding: 1rem;
+    width: 95%;
+    max-width: 95%;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  .toggleSwitch {
+    padding: 0.4rem;
+  }
+
+  .input {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .addButton,
+  .cancelButton {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
 }

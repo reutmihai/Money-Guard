@@ -1,13 +1,13 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCurrencyData,
   selectCurrencyLoading,
   selectCurrencyError,
-} from "../../redux/selectors";
-import { getCurrency } from "../../redux/operations";
-import s from "./Currency.module.css";
-import imageTab from "../../assets/images/currency.png";
+} from '../../redux/selectors';
+import { getCurrency } from '../../redux/operations';
+import s from './Currency.module.css';
+import imageTab from '../../assets/images/currency.png';
 
 const Currency = () => {
   const currency = useSelector(selectCurrencyData);
@@ -30,27 +30,29 @@ const Currency = () => {
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {!isLoading && !error && currency && (
-        <div className={s.currency_table}>
-          <ul className={s.currency_table_head}>
-            <li className={s.currency_item}>Currency</li>
-            <li className={s.currency_item}>Purchase</li>
-            <li className={s.currency_item}>Sale</li>
-          </ul>
-          <ul className={s.table_body}>
-            <li className={s.currency_tr}>
-              <p className={s.currency}>USD</p>
-              <p className={s.currency}>{rateBuyDollar}</p>
-              <p className={s.currency}>{rateSellDollar}</p>
-            </li>
-            <li className={s.currency_tr}>
-              <p className={s.currency}>EUR</p>
-              <p className={s.currency}>{rateBuyEuro}</p>
-              <p className={s.currency}>{rateSellEuro}</p>
-            </li>
-          </ul>
-        </div>
+        <table className={s.table}>
+          <thead>
+            <tr>
+              <th>Currency</th>
+              <th>Purchase</th>
+              <th>Sale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>USD</td>
+              <td>{rateBuyDollar}</td>
+              <td>{rateSellDollar}</td>
+            </tr>
+            <tr>
+              <td>EUR</td>
+              <td>{rateBuyEuro}</td>
+              <td>{rateSellEuro}</td>
+            </tr>
+          </tbody>
+        </table>
       )}
-      <img src={imageTab} alt="Currency" />
+      <img src={imageTab} alt='Currency' />
     </div>
   );
 };

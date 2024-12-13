@@ -1,0 +1,39 @@
+.container {
+  overflow: hidden;
+  max-width: 30rem;
+  height: calc(100vh - 80px);
+  border-right: 2px solid var(--inputs-border-color);
+}
+
+.navLinksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 8.5rem;
+  padding: 40px 16px 0;
+  width: 100%;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navLogo {
+  width: 24px;
+  height: 24px;
+}
+
+.navigation {
+  color: white;
+}
+
+.active {
+  font-weight: 800;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}

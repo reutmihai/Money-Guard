@@ -1,16 +1,17 @@
 import { Formik, Form, Field } from "formik";
 import PropTypes from "prop-types";
-import Swal from "sweetalert2";
 import styles from "./forms.module.css";
 import { updateTransaction } from "../../../services/transactionsAPI";
 import { useDispatch, useSelector } from "react-redux";
 import CustomDropdown from "./dropdown/custom-dropdown";
+import { useNotification } from "../../notification/notificationContext";
 
 const EditTransactionForm = ({ initialValues, onCancel }) => {
   const dispatch = useDispatch();
   const categories = useSelector(
     (state) => state.transactions.transactionCategories
   );
+  const { notify } = useNotification();
 
   const handleSubmit = async (values, { setErrors }) => {
     const errors = {};
@@ -51,26 +52,16 @@ const EditTransactionForm = ({ initialValues, onCancel }) => {
         })
       ).unwrap();
 
-      Swal.fire({
-        icon: "success",
-        title: "Updated!",
-        text: "Transaction updated successfully!",
-        timer: 2000,
-        showConfirmButton: false,
-      });
+      notify("Transaction updated successfully!", "success");
     } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Error",
-        text: error.response?.data || error.message,
-      });
+      notify(error.response?.data || error.message, "error");
     }
   };
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, setFieldValue }) => (
-        <Form className={styles.formContainerEdit}>
+        <Form className={styles.formContainer}>
           <h2 className={styles.formTitle}>Edit Transaction</h2>
 
           <div className={styles.toggleContainer}>

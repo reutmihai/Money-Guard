@@ -1,34 +1,35 @@
-import React, { Suspense } from "react";
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import PublicRoute from "./pages/PublicRoute.jsx";
-import PrivateRoute from "./pages/PrivateRoute.jsx";
+import { NotificationProvider } from "./components/notification/notificationContext.jsx";
 import { useSelector } from "react-redux";
-// import Home from "./pages/home.jsx";
-// import MainOrganism from "./components/tranzaction/organism.jsx";
-// import styles from "./assets/styles/index.css";
+import PublicRoute from "./router/PublicRoute.jsx";
+import PrivateRoute from "./router/PrivateRoute.jsx";
+import TransactionList from "./components/tranzaction/lists/tranzaction-list.jsx";
+import { selectLoading } from "./redux/selectors.js";
+import "./assets/styles/index.css";
 
-const Login = React.lazy(() => import("./pages/Login.jsx"));
-const Register = React.lazy(() => import("./pages/Register.jsx"));
-
- import StatisticsPage from "./pages/StatisticsPage.jsx";
-const Dashboard = React.lazy(() => import("./pages/Dashboard/Dashboard.jsx"));
+const Login = lazy(() => import("./pages/auth/Login.jsx"));
+const Register = lazy(() => import("./pages/auth/Register.jsx"));
+const Home = lazy(() => import("./pages/home/home.jsx"));
+const StatisticsTab = lazy(() =>
+  import("./components/statistic/statistic-tab.jsx/statistic-tab.jsx")
+);
 
 const App = () => {
-  const isAuthenticated = useSelector((state) => state.auth.isLoggedIn);
-  const isLoading = useSelector((state) => state.auth.isLoading);
+  const isLoading = useSelector(selectLoading);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+    <NotificationProvider>
+      <BrowserRouter>
         <Routes>
           <Route
             path="/Money-Guard/login"
             element={
-              <PublicRoute isAuthenticated={isAuthenticated}>
+              <PublicRoute>
                 <Login />
               </PublicRoute>
             }
@@ -37,7 +38,7 @@ const App = () => {
           <Route
             path="/Money-Guard/register"
             element={
-              <PublicRoute isAuthenticated={isAuthenticated}>
+              <PublicRoute>
                 <Register />
               </PublicRoute>
             }
@@ -45,21 +46,22 @@ const App = () => {
 
           {/* Rută privată pentru Dashboard */}
           <Route
-            path="/Money-Guard/dashboard"
+            path="/Money-Guard/"
             element={
-              <PrivateRoute isAuthenticated={isAuthenticated}>
-                <Dashboard />
-
-                { <StatisticsPage /> }
+              <PrivateRoute>
+                <Home />
               </PrivateRoute>
-            }
-          />
+            }>
+            <Route path='' element={<TransactionList />} />
+            <Route path='statistics' element={<StatisticsTab />} />
+            <Route path='currency' element={<StatisticsTab/>}/>
+          </Route>
 
           {/* Redirect către /login by default */}
           <Route path="*" element={<Navigate to="/Money-Guard/login" />} />
         </Routes>
-      </Suspense>
-    </BrowserRouter>
+      </BrowserRouter>
+    </NotificationProvider>
   );
 };
 
