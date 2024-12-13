@@ -1,11 +1,10 @@
 .currency_wrapper {
-  background-color: var(--modal-bg-color);
+  background-color: var(--dropdown-bg-color);
   height: 380px;
   max-width: 480px;
   display: flex;
   justify-content: center;
   flex-direction: column;
- 
 }
 
 .table {
@@ -15,7 +14,7 @@
   text-align: center;
 }
 
-th{
+th {
   background-color: var(--inputs-border-color);
   height: 66px;
 }

@@ -5,6 +5,12 @@
   /* max-width: 800px; */
   /* height: 90vh; */
 }
+.blur {
+  filter: blur(10px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
+
 .openModalBtn {
   position: fixed;
   bottom: 2rem;
@@ -21,7 +27,7 @@
   height: 70px;
 }
 .blurBackground {
-  filter: blur(5px);
+  filter: blur(5px) !important;
   transition: filter 0.3s ease;
   pointer-events: none;
 }
@@ -30,7 +36,6 @@
   top: 10%;
   left: 50%;
   transform: translate(-50%);
-
   max-width: 33.75rem;
   padding: 2.5rem 4rem;
   border-radius: 0.5rem;
