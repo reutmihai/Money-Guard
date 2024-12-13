@@ -78,7 +78,7 @@ min-width: 100%;
 
 .number {
   font-weight: 700;
-  background: linear-gradient(135deg, #3B2667 10%, #BC78EC 100%);
+  background: #BC78EC;
     
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
