@@ -38,6 +38,10 @@ h1 {
   line-height: 1.1;
 }
 
+body{
+  min-height: 100dvh;
+}
+
 
 button {
   border-radius: 8px;

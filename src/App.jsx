@@ -15,6 +15,7 @@ const MobileHome = lazy(()=> import("./pages/home/mobileHome.jsx"));
 const StatisticsTab = lazy(() =>
   import("./components/statistic/statistic-tab.jsx/statistic-tab.jsx")
 );
+const Currency = lazy(()=>import("./components/Currency/Currency.jsx"))
 
 const App = () => {
   const isLoading = useSelector(selectLoading);
@@ -56,7 +57,7 @@ const App = () => {
             }>
             <Route path='' element={<TransactionList />} />
             <Route path='statistics' element={<StatisticsTab />} />
-            <Route path='currency' element={<StatisticsTab/>}/>
+            <Route path='currency' element={<Currency/>}/>
           </Route>
 
           {/* Redirect către /login by default */}

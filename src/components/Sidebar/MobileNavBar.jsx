@@ -44,7 +44,7 @@ const MobileNavBar = () => {
           className={({ isActive }) =>
             isActive ? `${style.navigation} ${style.active}` : style.navigation
           }
-          to='statistics'>
+          to='currency'>
           <img src={getSvg(currencyLogo)} className={style.icon} />
         </NavLink>
       </div>
