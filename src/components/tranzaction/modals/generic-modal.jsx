@@ -1,13 +1,33 @@
+import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
+import { useEffect } from "react";
 import styles from "./modal.module.css";
+
 const GenericModal = ({ isOpen, onClose, children }) => {
-  if (!isOpen) return null;
+  useEffect(() => {
+    const rootElement = document.getElementById("root");
+    // console.log("Root element:", rootElement);
+
+    if (isOpen) {
+      rootElement.classList.add("blur");
+    } else {
+      rootElement.classList.remove("blur");
+    }
+
+    return () => {
+      rootElement.classList.remove("blur");
+    };
+  }, [isOpen]);
+
+  if (!isOpen) {
+    return null;
+  }
 
   const handleKeyDown = (e) => {
     if (e.key === "Escape") onClose();
   };
 
-  return (
+  return ReactDOM.createPortal(
     <div
       className={styles.modalWrapper}
       onClick={onClose}
@@ -20,7 +40,8 @@ const GenericModal = ({ isOpen, onClose, children }) => {
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    document.getElementById("modal-root")
   );
 };
 
