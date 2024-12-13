@@ -31,4 +31,8 @@
         max-width: 288px;
         height: 288px;
       }
+
+      @media (max-width: 768){
+        max-width: 280px;
+      }
  }
