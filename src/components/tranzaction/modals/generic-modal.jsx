@@ -6,7 +6,6 @@ import styles from "./modal.module.css";
 const GenericModal = ({ isOpen, onClose, children }) => {
   useEffect(() => {
     const rootElement = document.getElementById("root");
-    // console.log("Root element:", rootElement);
 
     if (isOpen) {
       rootElement.classList.add("blur");
@@ -35,9 +34,6 @@ const GenericModal = ({ isOpen, onClose, children }) => {
       tabIndex={0}
     >
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.modalClose} onClick={onClose}>
-          X
-        </button>
         {children}
       </div>
     </div>,

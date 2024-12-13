@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-// import PropTypes from "prop-types";
+import GenericModal from "../modals/generic-modal";
 import {
   getTransactions,
   getTransactionCategories,
@@ -182,13 +182,13 @@ const TransactionList = () => {
         ))}
       {/* </div> */}
       {isEditing && selectedTransaction && (
-        <div className={styles.editFormContainer}>
+        <GenericModal isOpen={isEditing} onClose={handleCancelEdit}>
           <EditTransactionForm
             initialValues={selectedTransaction}
             onSubmit={handleSaveEdit}
             onCancel={handleCancelEdit}
           />
-        </div>
+        </GenericModal>
       )}
     </div>
   );

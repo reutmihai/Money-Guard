@@ -61,7 +61,7 @@ const EditTransactionForm = ({ initialValues, onCancel }) => {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, setFieldValue }) => (
-        <Form className={styles.formContainerEdit}>
+        <Form className={styles.formContainer}>
           <h2 className={styles.formTitle}>Edit Transaction</h2>
 
           <div className={styles.toggleContainer}>
