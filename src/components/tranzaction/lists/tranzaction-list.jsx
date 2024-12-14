@@ -131,7 +131,14 @@ const TransactionList = () => {
       {/* Carduri pentru mobil */}
       {transactions.length > 0 &&
         transactions.map((transaction) => (
-          <div key={transaction.id} className={styles.transactionCard}>
+          <div
+            key={transaction.id}
+            className={`${styles.transactionCard} ${
+              transaction.type.toLowerCase() === "income"
+                ? styles.income
+                : styles.expense
+            }`}
+          >
             <span className={styles.spansMobile}>
               <strong>Date:</strong>{" "}
               {new Date(transaction.transactionDate).toLocaleDateString()}
@@ -166,20 +173,24 @@ const TransactionList = () => {
             </span>
             <div className={styles.transactionCardActions}>
               <button
-                onClick={() => handleEditTransaction(transaction)}
-                className={styles.editButton}
-              >
-                Edit
-              </button>
-              <button
                 onClick={() => handleDeleteTransaction(transaction.id)}
                 className={styles.deleteButton}
               >
                 Delete
               </button>
+              <button
+                onClick={() => handleEditTransaction(transaction)}
+                className={styles.editButton}
+              >
+                <svg className={styles["icon-edit"]}>
+                  <use xlinkHref={`${sprite}#icon-edit`}></use>
+                </svg>
+                Edit
+              </button>
             </div>
           </div>
         ))}
+
       {/* </div> */}
       {isEditing && selectedTransaction && (
         <GenericModal isOpen={isEditing} onClose={handleCancelEdit}>

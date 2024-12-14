@@ -1,11 +1,13 @@
-import { useNavigate } from 'react-router-dom';
-import logo from '../../assets/logo.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { handleLogOut } from '../../services/authAPI';
-import exit from '../../assets/exit.svg';
-import style from './LogOut.module.css';
-import { selectUsername } from '../../redux/selectors';
-import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { handleLogOut } from "../../services/authAPI";
+import exit from "../../assets/exit.svg";
+import style from "./LogOut.module.css";
+import { selectUsername } from "../../redux/selectors";
+import { useState } from "react";
+import GenericModal from "../tranzaction/modals/generic-modal";
+// import styles from "../tranzaction/modals/generic-modal";
 
 // import StatisticsPage from "./StatisticsPage";
 
@@ -21,10 +23,10 @@ function LogOut() {
       .unwrap()
       .then(() => {
         setIsOpen(false);
-        navigate('/Money-Guard/login', { replace: true });
+        navigate("/Money-Guard/login", { replace: true });
       })
-      .catch(error => {
-        console.error('Logout failed:', error);
+      .catch((error) => {
+        console.error("Logout failed:", error);
       });
   };
 
@@ -35,10 +37,10 @@ function LogOut() {
           <p className={style.userName}>{user}</p>
         </div>
         <div onClick={() => setIsOpen(true)} className={style.logoutContainer}>
-          <img src={exit} alt='exit icon' className={style.icon} />
+          <img src={exit} alt="exit icon" className={style.icon} />
         </div>
       </div>
-      {open && (
+      <GenericModal isOpen={open} onClose={() => setIsOpen(false)}>
         <div className={style.confirmModal}>
           <img src={logo} className={style.logo} />
           <p className={style.appName}>Money Guard</p>
@@ -46,13 +48,11 @@ function LogOut() {
           <button onClick={logoutUser} className={style.confirmBtn}>
             LOGOUT
           </button>
-          <button
-            onClick={() => setIsOpen(false)}
-            className={style.cancelBtn}>
+          <button onClick={() => setIsOpen(false)} className={style.cancelBtn}>
             CANCEL
           </button>
         </div>
-      )}
+      </GenericModal>
     </>
   );
 }
