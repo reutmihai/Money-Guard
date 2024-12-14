@@ -43,7 +43,6 @@ const Sidebar = () => {
             Statistics
           </NavLink>
         </div>
-
         <Balance />
         <Currency />
       </div>

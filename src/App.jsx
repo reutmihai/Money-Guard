@@ -11,9 +11,11 @@ import "./assets/styles/index.css";
 const Login = lazy(() => import("./pages/auth/Login.jsx"));
 const Register = lazy(() => import("./pages/auth/Register.jsx"));
 const Home = lazy(() => import("./pages/home/home.jsx"));
+const MobileHome = lazy(()=> import("./pages/home/mobileHome.jsx"));
 const StatisticsTab = lazy(() =>
   import("./components/statistic/statistic-tab.jsx/statistic-tab.jsx")
 );
+const Currency = lazy(()=>import("./components/Currency/Currency.jsx"))
 
 const App = () => {
   const isLoading = useSelector(selectLoading);
@@ -50,11 +52,12 @@ const App = () => {
             element={
               <PrivateRoute>
                 <Home />
+                <MobileHome/>
               </PrivateRoute>
             }>
             <Route path='' element={<TransactionList />} />
             <Route path='statistics' element={<StatisticsTab />} />
-            <Route path='currency' element={<StatisticsTab/>}/>
+            <Route path='currency' element={<Currency/>}/>
           </Route>
 
           {/* Redirect către /login by default */}

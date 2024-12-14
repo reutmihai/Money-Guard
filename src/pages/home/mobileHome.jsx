@@ -1,15 +1,14 @@
 import { Outlet } from "react-router-dom";
 import AppHeader from "../../components/AppHeader/AppHeader";
-import Sidebar from "../../components/Sidebar/Sidebar";
 import MainOrganism from "../../components/tranzaction/organism";
+
 import style from "./home.module.css";
-
-
-function Home() {
+import MobileNavBar from "../../components/Sidebar/mobileNavBar";
+function MobileHome() {
   return (
-    <div className={style.homeContainer}>
+    <div className={style.mobileHomeContainer}>
       <AppHeader />
-      <Sidebar />
+      <MobileNavBar/>
       <div>
         <Outlet />
       </div>
@@ -18,4 +17,4 @@ function Home() {
     
   );
 }
-export default Home;
+export default MobileHome;
