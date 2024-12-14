@@ -7,7 +7,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 
-  background: var(--dropdown-bg-color);
+ background: var(--dropdown-bg-color);
   background-repeat: no-repeat;
   background-size: cover;
   font-synthesis: none;

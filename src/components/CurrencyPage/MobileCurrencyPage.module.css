@@ -1,0 +1,9 @@
+.currencyPage{
+    width: 100vw;
+}
+
+@media(min-width:769px){
+    .currencyPage{
+        display: none;
+    }
+}
