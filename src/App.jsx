@@ -8,6 +8,7 @@ import TransactionList from './components/tranzaction/lists/tranzaction-list.jsx
 import { selectLoading } from './redux/selectors.js';
 import './assets/styles/index.css';
 import { usePageWidth } from './hooks/usePageWidth.jsx';
+import MobileCurrencyPage from './components/CurrencyPage/MobileCurrencyPage.jsx';
 
 const Login = lazy(() => import('./pages/auth/Login.jsx'));
 const Register = lazy(() => import('./pages/auth/Register.jsx'));
@@ -70,7 +71,7 @@ const App = () => {
             }>
             <Route path='' element={<TransactionList />} />
             <Route path='statistics' element={<StatisticsTab />} />
-            <Route path='currency' element={<Currency />} />
+            <Route path='currency' element={<MobileCurrencyPage/>} />
           </Route>
 
           {/* Redirect către /login by default */}
