@@ -1,5 +1,4 @@
 .homeContainer {
-  position: relative;
   display: none;
 }
 
@@ -26,5 +25,23 @@
   .tabletOutlet {
     display: flex;
     justify-content: center;
+  }
+}
+
+@media (min-width: 1280px) {
+  .TabletHomeContainer {
+    display: none;
+  }
+  .homeContainer {
+    position: relative;
+    display: block;
+  }
+  .outletContainer {
+    width: calc(100vw = 30rem);
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    top: 5rem;
+    left: 34.375rem;
   }
 }
