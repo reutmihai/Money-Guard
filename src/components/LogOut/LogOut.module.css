@@ -27,17 +27,18 @@
 }
 
 .confirmModal {
-  position: absolute;
+  /* position: absolute;
   top: 30%;
   left: 50%;
   transform: translate(-50%);
-  background-color: #3e228d81;
+  background-color: #3e228d81; */
   width: 33.125rem;
-  height: 28.125rem;
+  height: 30.125rem;
   display: flex; /*change to flex*/
   flex-flow: column nowrap;
   align-items: center;
-  padding: 60px 117px;
+  justify-content: center;
+  /* padding: 60px 117px; */
   box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
 }
@@ -99,11 +100,11 @@
 }
 
 @media (min-width: 769px) {
-  .logoutText{
+  .logoutText {
     display: inline-block;
   }
   .userName::after {
-    content: '';
+    content: "";
     border-left: 2px solid var(--inputs-border-color);
     height: 18px;
     margin-left: 12px;

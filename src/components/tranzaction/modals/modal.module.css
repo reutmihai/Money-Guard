@@ -37,7 +37,7 @@
   left: 50%;
   transform: translate(-50%);
   max-width: 33.75rem;
-  padding: 2.5rem 4rem;
+  padding: 0 4rem;
   border-radius: 0.5rem;
   backdrop-filter: blur(3px);
   pointer-events: fill;
@@ -52,9 +52,7 @@
   justify-content: center;
   align-items: center;
 }
-.modalContent {
-  margin-top: -20px;
-}
+
 .modalClose {
   position: absolute;
   top: 10px;
