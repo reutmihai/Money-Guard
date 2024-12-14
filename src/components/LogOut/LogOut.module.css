@@ -8,6 +8,10 @@
   color: var(--inputs-border-color);
 }
 
+.logoutText {
+  display: none;
+}
+
 .logoutContainer {
   display: flex;
   justify-self: center;
@@ -94,19 +98,23 @@
   color: var(--purple-color);
 }
 
-/* pentru tab si desktop */
-/* .userName::after {
-  content: '';
-  border-left: 2px solid var(--inputs-border-color);
-  height: 18px;
-  margin-left: 12px;
-  margin-right: 12px;
-}
+@media (min-width: 769px) {
+  .logoutText{
+    display: inline-block;
+  }
+  .userName::after {
+    content: '';
+    border-left: 2px solid var(--inputs-border-color);
+    height: 18px;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
   .logoutContainer {
-  display: flex;
-  justify-self: center;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  color: var(--inputs-border-color);
-} */
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--inputs-border-color);
+  }
+}

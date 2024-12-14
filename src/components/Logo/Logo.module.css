@@ -17,3 +17,16 @@
   line-height: 19.26px;
   text-decoration-skip-ink: none;
 }
+
+@media (min-width: 769px) {
+  .logo {
+    width: 23.5px;
+    height: 22.5px;
+  }
+  .logoText {
+    font-size: 17px;
+    line-height: 25.65px;
+  }
+}
+
+

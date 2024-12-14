@@ -9,3 +9,9 @@
   box-shadow: 0px 4px 40px 0px #00000040;
   box-shadow: 0px -3px 2px 0px #0000001a inset;
 }
+
+@media(min-width:769px){
+  .header{
+    height: 5rem;
+  }
+}

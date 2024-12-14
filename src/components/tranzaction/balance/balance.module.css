@@ -36,3 +36,11 @@
 .negativeBalance {
   color: red;
 }
+
+
+@media(min-width:1280px){
+  .balanceContainer{
+    border-radius: 0;
+    margin: 0;
+  }
+}

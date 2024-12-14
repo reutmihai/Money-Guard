@@ -1,16 +1,16 @@
 import { Outlet } from "react-router-dom";
 import AppHeader from "../../components/AppHeader/AppHeader";
-import Sidebar from "../../components/Sidebar/Sidebar";
 import MainOrganism from "../../components/tranzaction/organism";
 import style from "./home.module.css";
+import TabletNavBar from "../../components/Sidebar/TabletNavBar";
 
 
 const TabletHome = () => {
     return (
-        <div className={style.homeContainer}>
+        <div className={style.TabletHomeContainer}>
           <AppHeader />
-          <Sidebar />
-          <div>
+          <TabletNavBar/>
+          <div className={style.tabletOutlet}>
             <Outlet />
           </div>
           <MainOrganism />

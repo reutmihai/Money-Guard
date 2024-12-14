@@ -10,7 +10,7 @@ function Home() {
     <div className={style.homeContainer}>
       <AppHeader />
       <Sidebar />
-      <div>
+      <div className={style.outletContainer}>
         <Outlet />
       </div>
       <MainOrganism />
