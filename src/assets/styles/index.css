@@ -16,7 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
 }
@@ -32,39 +32,43 @@ a:hover {
   /* background: url("../images/register-bg.png"); */
 }
 
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
-body{
+body {
   min-height: 100dvh;
 }
-
 
 button {
   border-radius: 8px;
   border: none;
   /* border: 1px solid transparent; */
- height: auto;
+  height: auto;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-    cursor: pointer;
-background-image: linear-gradient(to right, #DC2424 0%, #4A569D 51%, #DC2424 100%);  cursor: pointer;
-transition: 0.5s;
-background-size: 200% auto;
-color: white;
-box-shadow: 0 0 20px #eee;
+  cursor: pointer;
+  background-image: linear-gradient(
+    to right,
+    #dc2424 0%,
+    #4a569d 51%,
+    #dc2424 100%
+  );
+  cursor: pointer;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /* box-shadow: 0 0 20px #eee; */
   /* transition: border-color 0.25s; */
 }
 
 button:hover {
- background-position: right center;
-/* change the direction of the change here */
- color: #fff;
-text-decoration: none;
+  background-position: right center;
+  /* change the direction of the change here */
+  /* color: #fff; */
+  text-decoration: none;
 }
 /* button:hover {
   border-color: #646cff;
