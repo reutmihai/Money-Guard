@@ -1,7 +1,8 @@
 .currency_wrapper {
   background-color: var(--dropdown-bg-color);
-  height: 215px;
+
   max-width: 100%;
+  margin-top: 30%;
   display: flex;
   justify-content: center;
   flex-direction: column;

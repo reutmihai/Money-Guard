@@ -33,3 +33,9 @@
   height: calc(100vh - 80px);
   border-right: 2px solid var(--inputs-border-color);
 }
+
+@media screen, (max-width:765) {
+  .container{
+    border:none;
+  }
+}

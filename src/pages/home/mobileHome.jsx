@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import AppHeader from "../../components/AppHeader/AppHeader";
-// import MainOrganism from "../../components/tranzaction/organism";
+import MainOrganism from "../../components/tranzaction/organism";
 
 import style from "./home.module.css";
 import MobileNavBar from "../../components/Sidebar/mobileNavBar";
@@ -12,7 +12,7 @@ function MobileHome() {
       <div>
         <Outlet />
       </div>
-      {/* <MainOrganism /> */}
+      <MainOrganism />
     </div>
     
   );

@@ -1,6 +1,7 @@
 .statisticsTab {
+  padding: 0 20px;
   display: flex;
-min-width: 100%;
+  min-width: 100%;
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 20px;
@@ -9,7 +10,8 @@ min-width: 100%;
   .statisticsTab {
     flex-direction: column;
     align-items: center;
-  }}
+  }
+}
 
 .title {
   font-family: var(--font-primary);
@@ -67,7 +69,6 @@ min-width: 100%;
   justify-content: space-between;
   padding: 0 10px;
   font-size: 14px;
-  
 }
 .expense {
   display: flex;
@@ -78,10 +79,10 @@ min-width: 100%;
 
 .number {
   font-weight: 700;
-  background: #BC78EC;
-    
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: #bc78ec;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 @media (max-width: 767px) {
   .dashboardContainer {

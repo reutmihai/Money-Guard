@@ -1,5 +1,18 @@
-
 .homeContainer {
   position: relative;
   display: none;
+}
+
+
+.mobileHomeContainer{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+@media (min-width:769px) {
+  .mobileHomeContainer{
+    display: none;
+  }
 }
