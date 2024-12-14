@@ -1,5 +1,4 @@
-
-.mobileNavLinksContainer{
+.mobileNavLinksContainer {
   padding-top: 12px;
   width: 100%;
   display: flex;
@@ -8,6 +7,14 @@
 
 .active {
   font-weight: 800;
+  color: #ffffff;
+}
+
+.navigation {
+  color: #fbfbfb;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .icon {
@@ -15,10 +22,16 @@
   height: 44px;
 }
 
-
+.container {
+  border: none;
+  display: none;
+}
+.tabletNavLinksContainer {
+  display: none;
+}
 
 /* tab and pc nav */
-.navLinksContainer {
+/* .navLinksContainer {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -26,16 +39,29 @@
   padding: 40px 16px 0;
   width: 100%;
   display: none;
-}
-.container {
+} */
+/* .container {
   overflow: hidden;
   max-width: 30rem;
   height: calc(100vh - 80px);
   border-right: 2px solid var(--inputs-border-color);
-}
+} */
 
-@media screen, (max-width:765) {
-  .container{
-    border:none;
+@media (min-width: 769px) {
+  .tabletNavLinksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 8.5rem;
+    padding: 40px 16px 0;
+    width: 100%;
+  }
+  .icon {
+    width: 18px;
+    height: 18px;
+  }
+  .tabletContainer {
+    height: 200px;
+    display: flex;
   }
 }
