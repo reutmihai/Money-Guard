@@ -9,12 +9,15 @@ const GenericModal = ({ isOpen, onClose, children }) => {
 
     if (isOpen) {
       rootElement.classList.add("blur");
+      document.body.style.overflow = "hidden";
     } else {
       rootElement.classList.remove("blur");
+      document.body.style.overflow = "";
     }
 
     return () => {
       rootElement.classList.remove("blur");
+      document.body.style.overflow = "";
     };
   }, [isOpen]);
 
