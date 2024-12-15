@@ -35,16 +35,14 @@
   position: fixed;
   top: 10%;
   left: 50%;
+  padding: 0 4rem;
   transform: translate(-50%);
   max-width: 33.75rem;
-  padding: 0 4rem;
-  border-radius: 0.5rem;
-  backdrop-filter: blur(3px);
   pointer-events: fill;
   background: rgba(255, 255, 255, 0);
-  border-radius: 16px;
+  border-radius: 0.5rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8.3px);
+  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8.3px);
   border: 1px solid rgba(255, 255, 255, 0.89);
   display: flex;
@@ -97,9 +95,14 @@
 
 @media (max-width: 480px) {
   .modalWrapper {
+    position: fixed;
+    top: 60px;
     padding: 1rem;
-    width: 95%;
-    max-width: 95%;
+    max-width: 100%;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    background-color: var(--purple-color);
+    border-radius: 0;
   }
 
   h2 {
