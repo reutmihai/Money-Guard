@@ -1,7 +1,7 @@
 #root.blur {
   filter: blur(4px);
   transition: filter 0.3s ease;
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 @media (max-width: 480px) {
