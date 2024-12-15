@@ -33,7 +33,9 @@
 }
 .modalWrapper {
   position: fixed;
+  top: 10%;
   left: 50%;
+  padding: 30px 50px;
   transform: translate(-50%);
   max-width: 33.75rem;
   pointer-events: fill;
