@@ -4,6 +4,9 @@
   gap: 40px;
   align-items: center;
 }
+.dropdownWrapper {
+  width: 100%;
+}
 .formContainerEdit {
   position: fixed;
   display: flex;
@@ -28,7 +31,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 300px;
+  width: 100%;
   margin-top: -20px;
   font-family: Arial, sans-serif;
 }
@@ -111,6 +114,7 @@
   gap: 2rem;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 .detailsIncome ::placeholder {
   color: var(--primary-white-color);
@@ -118,7 +122,7 @@
   font-weight: 300;
 }
 .detailsIncomeDate {
-  width: 180px;
+  width: 80%;
   appearance: textfield;
   border: none;
   border-bottom: 1px solid var(--inputs-border-color);
@@ -151,13 +155,16 @@
   cursor: pointer;
   border-radius: 5px;
 }
-
+.detailsCommentContainer {
+  width: 100%;
+  margin: 0 auto;
+}
 .detailsComment {
   border: none;
   border-bottom: 1px solid var(--inputs-border-color);
   background-color: transparent;
   outline: none;
-  width: 394px;
+  width: 90%;
   font-size: 18px;
   padding: 10px 0;
 }
@@ -174,33 +181,33 @@
   align-items: center;
   gap: 20px;
   margin-top: 10px;
+  width: 100%;
 }
 .btnAdd {
-  width: 300px;
+  width: 80%;
   font-size: 18px;
   padding: 13px 0;
   border-radius: 20px;
 }
 .btnCancelTranzaction {
   font-size: 18px;
-  width: 300px;
+  width: 80%;
   padding: 13px 0;
   border-radius: 20px;
   background: var(--primary-white-color);
   color: black;
 }
-
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .detailsIncome {
     flex-direction: column;
   }
-
   .detailsIncomeDate {
-    min-width: 400px;
-    text-align: left;
+    width: 100%;
   }
-
-  .formBtns button {
-    min-width: 400px;
+  .formContainer {
+    width: 100%;
+  }
+  .detailsComment {
+    width: 100%;
   }
 }

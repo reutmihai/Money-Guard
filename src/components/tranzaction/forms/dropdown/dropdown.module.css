@@ -1,6 +1,6 @@
 .dropdownContainer {
   position: relative;
-  width: 394px;
+  max-width: 394px;
   cursor: pointer;
 }
 
@@ -12,6 +12,7 @@
   color: var(--primary-white-color);
   font-size: 14px;
   outline: none;
+  width: 100%;
 }
 
 .dropdownOptions {
@@ -51,4 +52,13 @@
 .dropdownOptions {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@media (max-width: 768px) {
+  .dropdownContainer {
+    width: 100%;
+  }
+  .customDropdown {
+    width: 100%;
+  }
 }

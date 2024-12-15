@@ -69,7 +69,7 @@
 @media (max-width: 768px) {
   .organismContainer {
     max-width: 700px;
-    height: 50vh;
+    height: 100%;
   }
   .openModalBtn {
     padding-top: 5px;
@@ -79,11 +79,13 @@
   }
 
   .modalWrapper {
+    border: none;
     position: fixed;
     top: 0;
     bottom: 0;
-    max-width: 24rem;
-    padding: 1.5rem 2rem;
+    width: 100%;
+    padding: 5rem 1rem;
+    display: block;
   }
 
   .modalClose {
@@ -97,11 +99,11 @@
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .modalWrapper {
     padding: 1rem;
-    width: 95%;
-    max-width: 95%;
+    width: 100%;
+    max-width: 100%;
   }
 
   h2 {
@@ -122,4 +124,4 @@
     font-size: 0.9rem;
     padding: 0.6rem;
   }
-}
+} */
