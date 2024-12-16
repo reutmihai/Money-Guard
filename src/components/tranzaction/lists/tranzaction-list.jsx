@@ -71,7 +71,6 @@ const TransactionList = () => {
 
   return (
     <div className={styles.transactionListContainer}>
-      {/* Tabel pentru desktop și tabletă */}
       <div className={styles.transactionTable}>
         <div className={styles.tableHeader}>
           <span>Date</span>
@@ -98,7 +97,14 @@ const TransactionList = () => {
               </span>
               <span>{getCategoryName(transaction.categoryId)}</span>
               <span>{transaction.comment || "No comment"}</span>
-              <span className={styles.amount}>
+              <span
+                className={`${styles.amount} ${
+                  transaction.type.toLowerCase() === "income"
+                    ? styles.typeIncome
+                    : styles.typeExpense
+                }`}
+              >
+                {transaction.type.toLowerCase() === "expense" ? "-" : ""}
                 {Math.abs(transaction.amount).toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
@@ -127,7 +133,6 @@ const TransactionList = () => {
         )}
       </div>
 
-      {/* <div className={styles.listswrapper}> */}
       {/* Carduri pentru mobil */}
       {transactions.length > 0 &&
         transactions.map((transaction) => (
@@ -164,7 +169,14 @@ const TransactionList = () => {
             </span>
             <span className={styles.spansMobile}>
               <strong>Sum:</strong>
-              <span className={styles.amount}>
+              <span
+                className={`${styles.amount} ${
+                  transaction.type.toLowerCase() === "income"
+                    ? styles.typeIncome
+                    : styles.typeExpense
+                }`}
+              >
+                {transaction.type.toLowerCase() === "expense" ? "-" : ""}
                 {Math.abs(transaction.amount).toLocaleString("en-US", {
                   style: "currency",
                   currency: "USD",
@@ -191,7 +203,6 @@ const TransactionList = () => {
           </div>
         ))}
 
-      {/* </div> */}
       {isEditing && selectedTransaction && (
         <GenericModal isOpen={isEditing} onClose={handleCancelEdit}>
           <EditTransactionForm

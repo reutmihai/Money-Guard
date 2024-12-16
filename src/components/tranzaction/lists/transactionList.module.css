@@ -63,7 +63,7 @@
 .amount {
   font-weight: bold;
   text-align: left;
-  color: #fbc02d;
+  /* color: #fbc02d; */
 }
 
 .actionButtons {
