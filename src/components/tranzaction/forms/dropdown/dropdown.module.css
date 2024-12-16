@@ -1,6 +1,6 @@
 .dropdownContainer {
   position: relative;
-  max-width: 394px;
+  width: 100%;
   cursor: pointer;
 }
 
