@@ -71,6 +71,7 @@ const TransactionList = () => {
 
   return (
     <div className={styles.transactionListContainer}>
+      {/* Tabel pentru desktop și tabletă */}
       <div className={styles.transactionTable}>
         <div className={styles.tableHeader}>
           <span>Date</span>
