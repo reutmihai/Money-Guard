@@ -49,13 +49,13 @@
 }
 
 .typeIncome {
-  color: #4caf50;
+  color: var(--yellow-color);
   font-weight: bold;
   margin-left: 23px;
 }
 
 .typeExpense {
-  color: #f44336;
+  color: var(--color-expense);
   font-weight: bold;
   margin-left: 23px;
 }
