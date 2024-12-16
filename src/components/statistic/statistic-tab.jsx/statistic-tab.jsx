@@ -77,6 +77,10 @@ const StatisticsTab = () => {
             placeholder="Select Year"
           />
         </div>
+        <div className={styles.statisticDetails}>
+          <h5>Category</h5>
+          <h5>Sum</h5>
+        </div>
         <div>
           <StatisticsList
             categories={categoriesSummary || []}
@@ -86,11 +90,15 @@ const StatisticsTab = () => {
           <div className={styles.balanceContainer}>
             <div className={styles.expense}>
               <span> Expenses:</span>
-              <span className={styles.number}>{totalExpense.toLocaleString()}</span>
+              <span className={styles.number}>
+                {totalExpense.toLocaleString()}
+              </span>
             </div>
             <div className={styles.income}>
               <span> Income:</span>
-              <span className={styles.number}>{totalIncome.toLocaleString()}</span>
+              <span className={styles.number}>
+                {totalIncome.toLocaleString()}
+              </span>
             </div>
           </div>
         </div>

@@ -6,6 +6,15 @@
   flex-wrap: wrap;
   margin-bottom: 20px;
 }
+.statisticDetails {
+  display: flex;
+  justify-content: space-between;
+  max-width: 99%;
+  background: var(--modal-bg-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
 @media (max-width: 767px) {
   .statisticsTab {
     flex-direction: column;
