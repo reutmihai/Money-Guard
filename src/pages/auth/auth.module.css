@@ -146,11 +146,10 @@
   fill: var(--primary-white-color);
 }
 
-.icon-logo{
+.icon-logo {
   width: 60px;
   height: 60px;
 }
-
 
 @media screen and (max-width: 768px) {
   .loginContainer {

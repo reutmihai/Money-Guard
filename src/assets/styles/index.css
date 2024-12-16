@@ -7,7 +7,7 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 
- background: var(--dropdown-bg-color);
+  background: var(--dropdown-bg-color);
   background-repeat: no-repeat;
   background-size: cover;
   font-synthesis: none;
@@ -54,15 +54,18 @@ button {
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right,
     #dc2424 0%,
     #4a569d 51%,
     #dc2424 100%
-  );
+  ); */
+
+  background: var(--buttons-bg);
   cursor: pointer;
   transition: 0.5s;
-  background-size: 200% auto;
+  /* background-size: 200% auto; */
+  /* background-position: center; */
   color: white;
   /* box-shadow: 0 0 20px #eee; */
   /* transition: border-color 0.25s; */

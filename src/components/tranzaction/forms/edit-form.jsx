@@ -112,7 +112,7 @@ const EditTransactionForm = ({ initialValues, onCancel }) => {
               className={styles.detailsIncomeDate}
             />
           </div>
-          <div>
+          <div className={styles.detailsCommentContainer}>
             <Field
               name="comment"
               type="text"
