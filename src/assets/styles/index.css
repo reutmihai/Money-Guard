@@ -63,7 +63,7 @@ button {
 
   background: var(--buttons-bg);
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.5s ease;
   /* background-size: 200% auto; */
   /* background-position: center; */
   color: white;
@@ -76,6 +76,7 @@ button:hover {
   /* change the direction of the change here */
   /* color: #fff; */
   text-decoration: none;
+  transform: scale(1.1);
 }
 /* button:hover {
   border-color: #646cff;
