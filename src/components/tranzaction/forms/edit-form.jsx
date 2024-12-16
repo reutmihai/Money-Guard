@@ -113,14 +113,15 @@ const EditTransactionForm = ({ initialValues, onCancel }) => {
             />
           </div>
           <div className={styles.detailsCommentContainer}>
+
+
             <Field
               name="comment"
               type="text"
               className={styles.detailsComment}
               placeholder="Comment"
             />
-          </div>
-
+            </div>
           <div className={styles.formBtns}>
             <button type="submit" className={styles.btnAdd}>
               Save

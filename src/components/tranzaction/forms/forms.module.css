@@ -204,6 +204,7 @@
   }
   .detailsIncomeDate {
     width: 100%;
+    text-align: start;
   }
   .formContainer {
     width: 100%;
